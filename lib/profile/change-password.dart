@@ -6,6 +6,16 @@ class ChangePassword extends StatefulWidget {
 }
 
 class _ChangePasswordState extends State<ChangePassword> {
+
+  Widget feildsWithPadding(String title, double topVal, double bottomVal){
+    return Padding(padding: EdgeInsets.only(top: topVal, bottom: bottomVal),
+                    child: TextFormField(
+                      decoration:
+                          InputDecoration(labelText: title),
+                      obscureText: true,
+                    ),);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,31 +39,47 @@ class _ChangePasswordState extends State<ChangePassword> {
               )),
         ),
         body: Container(
-          margin: EdgeInsets.all(30),
-         // child: Expanded(
-              child: Column(
-            children: <Widget>[
-              Card(
-                  child: Padding(padding: const EdgeInsets.only(top: 20, left: 30, bottom: 20, right: 10),
-                    child: Column(children: [
-                TextFormField(
-                  decoration: InputDecoration(labelText: 'Current Password'),
-                  obscureText: true,
+            margin: EdgeInsets.all(30),
+            // child: Expanded(
+            child: Column(
+              children: <Widget>[
+                Card(
+                    
+                    child: Padding(
+                  padding: const EdgeInsets.only(
+                      top: 20, left: 30, bottom: 20, right: 10),
+                  child: Column(children: [
+                    TextFormField(
+                      decoration: InputDecoration(labelText: 'New Password'),
+                      obscureText: true,
+                    ),
+                    feildsWithPadding('Current Password', 10, 10),
+                    feildsWithPadding('Confirm Password', 10, 30),
+                    
+                  ]),
+                )),
+                Padding(padding: EdgeInsets.only(top: 60),
+                child: RaisedButton(
+                  child: Text(
+                    'Submit',
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: 18,
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  color: Colors.black87,
+                  padding: EdgeInsets.symmetric(horizontal: 140, vertical: 15),
+                  shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(30.0),
+                  ),
                 ),
-                TextFormField(
-                  decoration: InputDecoration(labelText: 'New Password'),
-                  obscureText: true,
-                ),
-                TextFormField(
-                  decoration: InputDecoration(labelText: 'Confirm Password'),
-                  obscureText: true,
-                ),
-              ]),
-                  )),
-                  
-            ],
-          )
-          //), remved due to exceptions
-        ));
+                )
+              ],
+            )
+            //), remved due to exceptions
+            ));
   }
 }

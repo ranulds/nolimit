@@ -10,6 +10,15 @@ class MainProfile extends StatefulWidget {
 }
 
 class _MainProfileState extends State<MainProfile> {
+
+  bool val = false;
+
+  onSwitchValueChanges(bool newVal){
+    setState(() {
+      val = newVal;
+    });
+  }
+
   Widget _buildCards(String title, Icon icon, Object navPage) {
     return Card(
       child: ListTile(
@@ -34,6 +43,21 @@ class _MainProfileState extends State<MainProfile> {
             _buildCards('Mobile Verification', Icon(Icons.mobile_screen_share), new MobileVerification()),
             _buildCards('Notifications', Icon(Icons.notifications), new MyAccount()),
             _buildCards('Logout', Icon(Icons.notifications), MyAccount()),
+            Padding(padding: EdgeInsets.only(top:50, right: 10, left: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Text('Enable Notifications ', style: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+               // fontWeight: FontWeight.w500,
+              ),),
+                Transform.scale(scale: 1.5,
+                child: Switch(value: val, onChanged: (newVal){
+                  onSwitchValueChanges(newVal);
+                }))
+              ]
+            ),)
           ],
         ),
       ),

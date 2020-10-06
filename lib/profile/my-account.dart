@@ -47,29 +47,38 @@ class _MyAccountState extends State<MyAccount> {
           margin: EdgeInsets.all(20),
             child: ListView(
           children: <Widget>[
+            
             TextFormField(
               decoration: InputDecoration(labelText: 'Full Name *'),
             ),
-            TextFormField(
+            Padding(padding: EdgeInsets.only(top: 10),
+            child: TextFormField(
               decoration: InputDecoration(labelText: 'Email *'),
-            ),
-            TextFormField(
+            )),
+            Padding(padding: EdgeInsets.only(top: 10),
+            child: TextFormField(
               decoration: InputDecoration(labelText: 'Mobile Number *'),
               keyboardType: TextInputType.number,
               inputFormatters: <TextInputFormatter>[
                 FilteringTextInputFormatter.digitsOnly
               ],
-            ),
+            )),
+            Padding(padding: EdgeInsets.only(top: 10),
+            child:
             TextFormField(
               decoration: InputDecoration(labelText: 'Arapaima Card Number'),
               keyboardType: TextInputType.number,
               inputFormatters: <TextInputFormatter>[
                 FilteringTextInputFormatter.digitsOnly
               ],
-            ),
+            )),
+            Padding(padding: EdgeInsets.only(top: 10),
+            child:
             TextFormField(
               decoration: InputDecoration(labelText: 'NIC'),
-            ),
+            )),
+            Padding(padding: EdgeInsets.only(top: 10),
+            child:
             TextFormField(
               decoration: InputDecoration(labelText: 'Birth Date ', suffixIcon: Icon(Icons.calendar_today)),
               onTap: () {
@@ -78,7 +87,25 @@ class _MyAccountState extends State<MyAccount> {
                 // Show Date Picker Here
                 _selectDate(context);
               },
-            ),
+            )),
+            Padding(padding: EdgeInsets.only(top: 80),
+            child: RaisedButton(
+                  child: Text(
+                    'Save',
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: 18,
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  color: Colors.black87,
+                  padding: EdgeInsets.symmetric(horizontal: 140, vertical: 15),
+                  shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(30.0),
+                  ),
+                ),)
           ],
         )));
   }
