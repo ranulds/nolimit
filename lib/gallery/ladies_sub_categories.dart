@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nolimit/gallery/gallery.dart';
+import 'package:nolimit/gallery/item.dart';
 import 'package:nolimit/gallery/ladies_category.dart';
 import 'package:nolimit/map/map.dart';
+import 'package:nolimit/shane/notifications.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 
 class LadiesSubCategory extends StatefulWidget {
@@ -25,7 +27,8 @@ class _LadiesCategoryState extends State<LadiesSubCategory> {
           MaterialPageRoute(builder: (_) => Gallery()),
           (Route<dynamic> route) => false);
     else if (index == 2)
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => RanulMap()));
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (_) => GoogleCustomMap()));
   }
 
   @override
@@ -77,7 +80,8 @@ class _LadiesCategoryState extends State<LadiesSubCategory> {
               Icons.notifications,
               size: 30,
             ),
-            onPressed: () {},
+            onPressed: () => Navigator.of(context)
+                .push(MaterialPageRoute(builder: (_) => Notifications())),
           )
         ],
       ),
@@ -138,16 +142,16 @@ class _LadiesCategoryState extends State<LadiesSubCategory> {
                     scrollDirection: Axis.horizontal,
                     children: <Widget>[
                       Imagewidget(
-                        source: 'images/placeimg_640_480_people (1).jpg',
+                        source: 'images/pexels-andriana-3317434 (1).jpg',
                       ),
                       Imagewidget(
-                        source: 'images/placeimg_640_480_people (1).jpg',
+                        source: 'images/pexels-daria-shevtsova-1391580 (1).jpg',
                       ),
                       Imagewidget(
-                        source: 'images/placeimg_640_480_people (1).jpg',
+                        source: 'images/pexels-lucas-queiroz-1852382 (1).jpg',
                       ),
                       Imagewidget(
-                        source: 'images/placeimg_640_480_people (1).jpg',
+                        source: 'images/pexels-mikotoraw-4132651 (1).jpg',
                       ),
                     ],
                   ),
@@ -166,7 +170,9 @@ class _LadiesCategoryState extends State<LadiesSubCategory> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: FlatButton(
-                        onPressed: () => {},
+                        onPressed: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (_) => LadiesCategory())),
                         child: Text('show all'),
                       ),
                     )
@@ -179,16 +185,16 @@ class _LadiesCategoryState extends State<LadiesSubCategory> {
                     scrollDirection: Axis.horizontal,
                     children: <Widget>[
                       Imagewidget(
-                        source: 'images/placeimg_640_480_people (1).jpg',
+                        source: 'images/pexels-mikotoraw-4132651 (1).jpg',
                       ),
                       Imagewidget(
-                        source: 'images/placeimg_640_480_people (1).jpg',
+                        source: 'images/pexels-lucas-queiroz-1852382 (1).jpg',
                       ),
                       Imagewidget(
-                        source: 'images/placeimg_640_480_people (1).jpg',
+                        source: 'images/pexels-daria-shevtsova-1391580 (1).jpg',
                       ),
                       Imagewidget(
-                        source: 'images/placeimg_640_480_people (1).jpg',
+                        source: 'images/pexels-andriana-3317434 (1).jpg',
                       ),
                     ],
                   ),
@@ -207,7 +213,9 @@ class _LadiesCategoryState extends State<LadiesSubCategory> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: FlatButton(
-                        onPressed: () => {},
+                        onPressed: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (_) => LadiesCategory())),
                         child: Text('show all'),
                       ),
                     )
@@ -220,16 +228,16 @@ class _LadiesCategoryState extends State<LadiesSubCategory> {
                     scrollDirection: Axis.horizontal,
                     children: <Widget>[
                       Imagewidget(
-                        source: 'images/placeimg_640_480_people (1).jpg',
+                        source: 'images/pexels-andriana-3317434 (1).jpg',
                       ),
                       Imagewidget(
-                        source: 'images/placeimg_640_480_people (1).jpg',
+                        source: 'images/pexels-daria-shevtsova-1391580 (1).jpg',
                       ),
                       Imagewidget(
-                        source: 'images/placeimg_640_480_people (1).jpg',
+                        source: 'images/pexels-lucas-queiroz-1852382 (1).jpg',
                       ),
                       Imagewidget(
-                        source: 'images/placeimg_640_480_people (1).jpg',
+                        source: 'images/pexels-mikotoraw-4132651 (1).jpg',
                       ),
                     ],
                   ),
@@ -263,58 +271,62 @@ class _ImagewidgetState extends State<Imagewidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10),
-      width: 160.0,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Stack(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3),
+    return GestureDetector(
+      onTap: () =>
+          Navigator.of(context).push(MaterialPageRoute(builder: (_) => Item())),
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 10),
+        width: 160.0,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Stack(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      widget.source,
                     ),
-                  ],
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.asset(
-                    widget.source,
                   ),
                 ),
-              ),
-              Align(
-                child: Material(
-                  type: MaterialType.transparency,
-                  child: IconButton(
-                    icon: Icon(liked ? Icons.favorite : Icons.favorite_border,
-                        color: liked ? Colors.red : Colors.grey),
-                    onPressed: () => _pressed(),
+                Align(
+                  child: Material(
+                    type: MaterialType.transparency,
+                    child: IconButton(
+                      icon: Icon(liked ? Icons.favorite : Icons.favorite_border,
+                          color: liked ? Colors.red : Colors.grey),
+                      onPressed: () => _pressed(),
+                    ),
                   ),
-                ),
-                alignment: Alignment.topRight,
-              )
-            ],
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            'Lace  Midi Skirt',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          Text(
-            'Rs 1750',
-            style: TextStyle(color: Colors.grey),
-          ),
-        ],
+                  alignment: Alignment.topRight,
+                )
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              'Lace  Midi Skirt',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            Text(
+              'Rs 1750',
+              style: TextStyle(color: Colors.grey),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -32,6 +32,7 @@ dependencies:
   permission_handler: ^5.0.1+1
   floating_pullup_card: ^0.2.2
   pinch_zoom_image_last: ^0.3.1
+  flutter_simple_rating_bar: ^0.0.3
 
 dev_dependencies:
   flutter_test:
