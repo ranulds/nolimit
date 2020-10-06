@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:nolimit/gallery/gallery.dart';
 import 'package:nolimit/gallery/ladies_sub_categories.dart';
 import 'package:nolimit/map/map.dart';
-import 'package:nolimit/shane/brands.dart';
+import 'package:nolimit/shane/brand_detail.dart';
+import 'package:nolimit/shane/feedback.dart';
 import 'package:nolimit/shane/notifications.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 
-class Gallery extends StatefulWidget {
+class Brands extends StatefulWidget {
   @override
   _GalleryState createState() => _GalleryState();
 }
 
-class _GalleryState extends State<Gallery> {
+class _GalleryState extends State<Brands> {
   int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
@@ -18,15 +20,14 @@ class _GalleryState extends State<Gallery> {
       _selectedIndex = index;
     });
     if (index == 0)
-      Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (_) => WishList()),
-          (Route<dynamic> route) => false);
+      Navigator.of(context).push(MaterialPageRoute(builder: (_) => FeedBack()));
     else if (index == 1)
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(builder: (_) => Gallery()),
           (Route<dynamic> route) => false);
     else if (index == 2)
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => Brands()));
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (_) => GoogleCustomMap()));
   }
 
   @override
@@ -52,7 +53,7 @@ class _GalleryState extends State<Gallery> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.black54,
         onTap: _onItemTapped,
       ),
       primary: false,
@@ -81,7 +82,7 @@ class _GalleryState extends State<Gallery> {
             Padding(
               padding: const EdgeInsets.only(left: 20.0),
               child: Text(
-                'Categories',
+                'Brands',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
               ),
             ),
@@ -92,20 +93,20 @@ class _GalleryState extends State<Gallery> {
               child: ListView(
                 children: [
                   GestureDetector(
-                    onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => LadiesSubCategory())),
+                    onTap: () => Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (_) => BrandDetail())),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       child: Stack(
                         children: [
                           Image.asset(
-                            'images/pexels-lucas-queiroz-1852382 (1).jpg',
+                            'images/adidas.jpg',
                           ),
                           Positioned.fill(
                             child: Align(
                               alignment: Alignment.center,
                               child: Text(
-                                'Ladies',
+                                'Adidas',
                                 style: TextStyle(
                                     fontSize: 40,
                                     fontWeight: FontWeight.bold,
@@ -123,20 +124,20 @@ class _GalleryState extends State<Gallery> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => LadiesSubCategory())),
+                    onTap: () => Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (_) => BrandDetail())),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       child: Stack(
                         children: [
                           Image.asset(
-                            'images/pexels-marlene-leppänen-1183266.jpg',
+                            'images/puma.jpg',
                           ),
                           Positioned.fill(
                             child: Align(
                               alignment: Alignment.center,
                               child: Text(
-                                'Gents',
+                                'Puma',
                                 style: TextStyle(
                                     fontSize: 40,
                                     fontWeight: FontWeight.bold,
@@ -154,20 +155,20 @@ class _GalleryState extends State<Gallery> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => LadiesSubCategory())),
+                    onTap: () => Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (_) => BrandDetail())),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       child: Stack(
                         children: [
                           Image.asset(
-                            'images/kids.jpg',
+                            'images/lacoste.jpg',
                           ),
                           Positioned.fill(
                             child: Align(
                               alignment: Alignment.center,
                               child: Text(
-                                'Kids',
+                                'Lacoste',
                                 style: TextStyle(
                                     fontSize: 40,
                                     fontWeight: FontWeight.bold,
@@ -185,51 +186,20 @@ class _GalleryState extends State<Gallery> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => LadiesSubCategory())),
+                    onTap: () => Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (_) => BrandDetail())),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       child: Stack(
                         children: [
                           Image.asset(
-                            'images/acc.jpg',
+                            'images/nike.jpg',
                           ),
                           Positioned.fill(
                             child: Align(
                               alignment: Alignment.center,
                               child: Text(
-                                'Accessories',
-                                style: TextStyle(
-                                    fontSize: 40,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      elevation: 5,
-                      margin: EdgeInsets.all(20),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => LadiesSubCategory())),
-                    child: Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      child: Stack(
-                        children: [
-                          Image.asset(
-                            'images/homeware.jpg',
-                          ),
-                          Positioned.fill(
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                'Homeware',
+                                'Nike',
                                 style: TextStyle(
                                     fontSize: 40,
                                     fontWeight: FontWeight.bold,

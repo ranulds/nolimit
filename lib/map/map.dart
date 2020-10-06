@@ -2,14 +2,15 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:nolimit/shane/notifications.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-class RanulMap extends StatefulWidget {
+class GoogleCustomMap extends StatefulWidget {
   @override
   _RanulMapState createState() => _RanulMapState();
 }
 
-class _RanulMapState extends State<RanulMap> {
+class _RanulMapState extends State<GoogleCustomMap> {
   Completer<GoogleMapController> _controller = Completer();
 
   static const LatLng _center = const LatLng(6.9271, 79.8612);
@@ -135,24 +136,37 @@ class _RanulMapState extends State<RanulMap> {
     ]);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
         leading: IconButton(
           icon: Icon(
             Icons.chevron_left,
             size: 35,
-            color: Colors.black,
           ),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        elevation: 0,
         primary: false,
+        iconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text('Map',
+            style: TextStyle(
+              color: Colors.black,
+            )),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.notifications,
+              size: 30,
+            ),
+            onPressed: () => Navigator.of(context)
+                .push(MaterialPageRoute(builder: (_) => Notifications())),
+          )
+        ],
       ),
       primary: false,
-      extendBodyBehindAppBar: true,
+      extendBodyBehindAppBar: false,
       body: Stack(
         children: <Widget>[
           GoogleMap(
-            padding: EdgeInsets.only(top: 60),
             mapToolbarEnabled: true,
             compassEnabled: true,
             myLocationEnabled: true,
@@ -181,7 +195,7 @@ class _RanulMapState extends State<RanulMap> {
           //   ),
           // ),
           Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: const EdgeInsets.only(right: 12, top: 52),
             child: Align(
               alignment: Alignment.topRight,
               child: Container(

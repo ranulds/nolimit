@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nolimit/gallery/gallery.dart';
 import 'package:nolimit/gallery/item.dart';
 import 'package:nolimit/map/map.dart';
+import 'package:nolimit/shane/notifications.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 
 class LadiesCategory extends StatefulWidget {
@@ -25,7 +26,8 @@ class _LadiesCategoryState extends State<LadiesCategory> {
           MaterialPageRoute(builder: (_) => Gallery()),
           (Route<dynamic> route) => false);
     else if (index == 2)
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => RanulMap()));
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (_) => GoogleCustomMap()));
   }
 
   @override
@@ -40,14 +42,12 @@ class _LadiesCategoryState extends State<LadiesCategory> {
           onPressed: () => Navigator.of(context).pop(),
         ),
         primary: false,
-        elevation: 0,
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
-        title: Text('',
+        centerTitle: true,
+        title: Text('Formal Skirts',
             style: TextStyle(
               color: Colors.black,
-              fontSize: 25,
-              fontWeight: FontWeight.bold,
             )),
         actions: <Widget>[
           IconButton(
@@ -55,7 +55,8 @@ class _LadiesCategoryState extends State<LadiesCategory> {
               Icons.notifications,
               size: 30,
             ),
-            onPressed: () {},
+            onPressed: () => Navigator.of(context)
+                .push(MaterialPageRoute(builder: (_) => Notifications())),
           )
         ],
       ),
@@ -86,26 +87,19 @@ class _LadiesCategoryState extends State<LadiesCategory> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0),
-              child: Text(
-                'Formal Skirts',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0),
-              child: Text(
-                '8 items found',
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.grey,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 5,
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.only(left: 20.0),
+            //   child: Text(
+            //     '8 items found',
+            //     style: TextStyle(
+            //       fontSize: 15,
+            //       color: Colors.grey,
+            //     ),
+            //   ),
+            // ),
+            // SizedBox(
+            //   height: 5,
+            // ),
             Expanded(
               child: GridView.count(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -116,25 +110,25 @@ class _LadiesCategoryState extends State<LadiesCategory> {
                     (MediaQuery.of(context).size.height / 1.7),
                 children: <Widget>[
                   Imagewidget(
-                    source: 'images/placeimg_640_480_people (1).jpg',
+                    source: 'images/pexels-andriana-3317434 (1).jpg',
                   ),
                   Imagewidget(
-                    source: 'images/placeimg_640_480_people (1).jpg',
+                    source: 'images/pexels-daria-shevtsova-1391580 (1).jpg',
                   ),
                   Imagewidget(
-                    source: 'images/placeimg_640_480_people (1).jpg',
+                    source: 'images/pexels-lucas-queiroz-1852382 (1).jpg',
                   ),
                   Imagewidget(
-                    source: 'images/placeimg_640_480_people (1).jpg',
+                    source: 'images/pexels-mikotoraw-4132651 (1).jpg',
                   ),
                   Imagewidget(
-                    source: 'images/placeimg_640_480_people (1).jpg',
+                    source: 'images/pexels-quang-anh-ha-nguyen-884979 (1).jpg',
                   ),
                   Imagewidget(
-                    source: 'images/placeimg_640_480_people (1).jpg',
+                    source: 'images/pexels-andriana-3317434 (1).jpg',
                   ),
                   Imagewidget(
-                    source: 'images/placeimg_640_480_people (1).jpg',
+                    source: 'images/pexels-daria-shevtsova-1391580 (1).jpg',
                   ),
                   Imagewidget(
                     source: 'images/placeimg_640_480_people (1).jpg',
@@ -225,9 +219,6 @@ class _ImagewidgetState extends State<Imagewidget> {
                   'Rs 1750',
                   style: TextStyle(color: Colors.grey),
                 ),
-              ),
-              SizedBox(
-                height: 5,
               ),
             ],
           ),
