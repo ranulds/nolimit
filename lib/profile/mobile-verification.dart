@@ -9,6 +9,7 @@ class MobileVerification extends StatefulWidget {
 class _MobileVerificationState extends State<MobileVerification> {
   Widget getButton(String title, colorVal, double hval) {
     return RaisedButton(
+      elevation: 6.0,
       child: Text(
         title,
         style: TextStyle(
@@ -70,12 +71,14 @@ class _MobileVerificationState extends State<MobileVerification> {
         ),
         body: Container(
             child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,    
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
                 margin: EdgeInsets.all(30),
                 // padding: EdgeInsets.all(30),
                 child: Card(
+                  elevation: 8.0,
                   child: Padding(
                       padding: EdgeInsets.all(30),
                       child: Column(

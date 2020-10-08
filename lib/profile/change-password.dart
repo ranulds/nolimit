@@ -6,14 +6,14 @@ class ChangePassword extends StatefulWidget {
 }
 
 class _ChangePasswordState extends State<ChangePassword> {
-
-  Widget feildsWithPadding(String title, double topVal, double bottomVal){
-    return Padding(padding: EdgeInsets.only(top: topVal, bottom: bottomVal),
-                    child: TextFormField(
-                      decoration:
-                          InputDecoration(labelText: title),
-                      obscureText: true,
-                    ),);
+  Widget feildsWithPadding(String title, double topVal, double bottomVal) {
+    return Padding(
+      padding: EdgeInsets.only(top: topVal, bottom: bottomVal),
+      child: TextFormField(
+        decoration: InputDecoration(labelText: title),
+        obscureText: true,
+      ),
+    );
   }
 
   @override
@@ -40,44 +40,50 @@ class _ChangePasswordState extends State<ChangePassword> {
         ),
         body: Container(
             margin: EdgeInsets.all(30),
-            child: ListView(
+           // height: 600,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Card(
                     
+                    elevation: 8.0,
                     child: Padding(
-                  padding: const EdgeInsets.only(
-                      top: 20, left: 30, bottom: 20, right: 10),
-                  child: ListView(children: [
-                    TextFormField(
-                      decoration: InputDecoration(labelText: 'New Password'),
-                      obscureText: true,
+                      padding: const EdgeInsets.only(
+                          top: 20, left: 30, bottom: 20, right: 10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                        TextFormField(
+                          decoration:
+                              InputDecoration(labelText: 'New Password'),
+                          obscureText: true,
+                        ),
+                        feildsWithPadding('Current Password', 10, 10),
+                        feildsWithPadding('Confirm Password', 10, 30),
+                      ]),
+                    )),
+                Padding(
+                  padding: EdgeInsets.only(top: 60),
+                  child: RaisedButton(
+                    child: Text(
+                      'Submit',
+                      style: TextStyle(
+                        color: Colors.white70,
+                        fontSize: 18,
+                      ),
                     ),
-                    feildsWithPadding('Current Password', 10, 10),
-                    feildsWithPadding('Confirm Password', 10, 30),
-                    
-                  ]),
-                )),
-                Padding(padding: EdgeInsets.only(top: 60),
-                child: RaisedButton(
-                  child: Text(
-                    'Submit',
-                    style: TextStyle(
-                      color: Colors.white70,
-                      fontSize: 18,
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    color: Colors.black87,
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 140, vertical: 15),
+                    shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(30.0),
                     ),
                   ),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  color: Colors.black87,
-                  padding: EdgeInsets.symmetric(horizontal: 140, vertical: 15),
-                  shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(30.0),
-                  ),
-                ),
                 )
               ],
-            )
-            ));
+            )));
   }
 }

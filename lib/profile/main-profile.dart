@@ -20,66 +20,144 @@ class _MainProfileState extends State<MainProfile> {
     });
   }
 
+  Widget getSelectContainers(icon) {
+    return Container(
+        decoration: BoxDecoration(
+            color: Colors.grey[200],
+            //  border: Colors.red,
+            borderRadius: BorderRadius.circular(50)),
+        width: 100,
+        height: 100,
+        margin: EdgeInsets.all(10),
+        child: Transform.scale(
+          scale: 1.5,
+          child: Icon(
+            icon,
+            color: Colors.grey[800],
+          ),
+        ));
+  }
+
   _imgFromCamera() async {
-    PickedFile image = await _picker.getImage(
-        source: ImageSource.camera);
+    PickedFile image = await _picker.getImage(source: ImageSource.camera);
 
     setState(() {
-      if(image != null){
+      if (image != null) {
         _image = File(image.path);
-      }else{
+      } else {
         print('No image selected.');
       }
     });
   }
 
   _imgFromGallery() async {
-    PickedFile image = await _picker.getImage(
-        source: ImageSource.gallery);
+    PickedFile image = await _picker.getImage(source: ImageSource.gallery);
 
     setState(() {
-      if(image != null){
+      if (image != null) {
         _image = File(image.path);
-      }else{
+      } else {
         print('No image selected.');
       }
     });
   }
 
+  _imgDelete() async {
+    setState(() {
+      _image = null;
+    });
+  }
 
   void _showPicker(context) {
-  showModalBottomSheet(
-      context: context,
-      builder: (BuildContext bc) {
-        return SafeArea(
-          child: Container(
-            child: new Wrap(
-              children: <Widget>[
-                new ListTile(
-                    leading: new Icon(Icons.photo_library),
-                    title: new Text('Photo Library'),
-                    onTap: () {
-                      _imgFromGallery();
-                      Navigator.of(context).pop();
-                    }),
-                new ListTile(
-                  leading: new Icon(Icons.photo_camera),
-                  title: new Text('Camera'),
-                  onTap: () {
-                    _imgFromCamera();
-                    Navigator.of(context).pop();
-                  },
-                ),
-              ],
-            ),
-          ),
-        );
-      }
-    );
-}
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext bc) {
+          return SafeArea(
+            
+            child: Container(
+                decoration: BoxDecoration(borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+                margin: EdgeInsets.all(10),
+                child: new Wrap(children: <Widget>[
+                  new Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            GestureDetector(
+                                onTap: () {
+                                  _imgDelete();
+                                  Navigator.of(context).pop();
+                                },
+                                child:
+                                    getSelectContainers(Icons.delete_outline)),
+                            Text('Delete',
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 16))
+                          ]),
+                      Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            GestureDetector(
+                                onTap: () {
+                                  _imgFromGallery();
+                                  Navigator.of(context).pop();
+                                },
+                                child: getSelectContainers(Icons.insert_photo)),
+                            Text('Select from Gallery',
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 16))
+                          ]),
+                      Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            GestureDetector(
+                                onTap: () {
+                                  _imgFromCamera();
+                                  Navigator.of(context).pop();
+                                },
+                                child: getSelectContainers(Icons.camera_alt)),
+                            Text('Camera',
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 16))
+                          ]),
+                    ],
+                  ),
+                  Row(children: [
+                    Expanded(
+                        child: Padding(
+                      padding: EdgeInsets.all(20),
+                      child: RaisedButton(
+                        child: Text(
+                          'Cancel',
+                          style: TextStyle(
+                            color: Colors.white70,
+                            fontSize: 18,
+                          ),
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        color: Colors.black87,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 140, vertical: 15),
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0),
+                        ),
+                      ),
+                    ))
+                  ])
+                ])),
+          );
+        });
+  }
 
   Widget _buildCards(String title, Icon icon, Object navPage) {
     return Card(
+      elevation: 8.0,
       child: ListTile(
           leading: icon,
           title: Text(
@@ -99,63 +177,103 @@ class _MainProfileState extends State<MainProfile> {
         //height: 100.0,
         child: ListView(
           children: <Widget>[
-            // Stack(
-            //   children: [
-            //     Image.asset(
-            //       'images/profile/propic.png',
-            //       fit: BoxFit.fill,
-            //     ),
-            //     // _buildCards('My Account', Icon(Icons.people_outline,), new MyAccount()),
+            Stack(
+              children: [
+                Container(
+                    height: 250,
+                    child: Image.asset(
+                      'images/profile/propic.png',
+                      fit: BoxFit.fill,
+                    )),
 
-            //     Image.asset(
-            //       'images/lacoste.jpg',
-            //       fit: BoxFit.fill,
-            //     ),
-            //     _buildCards(
-            //         'My Account',
-            //         Icon(
-            //           Icons.people_outline,
-            //         ),
-            //         new MyAccount()),
-            //   ],
-            // ),
-
-            SizedBox(
-          height: 32,
-        ),
-        Center(
-          child: GestureDetector(
-            onTap: () {
-              _showPicker(context);
-            },
-            child: CircleAvatar(
-              radius: 55,
-              backgroundColor: Color(0xffFDCF09),
-              child: _image != null
-                  ? ClipRRect(
-                      borderRadius: BorderRadius.circular(50),
-                      child: Image.file(
-                        _image,
-                        width: 100,
-                        height: 100,
-                        fit: BoxFit.fitHeight,
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Center(
+                        child: Padding(
+                      padding: EdgeInsets.only(top: 60, bottom: 20),
+                      child: GestureDetector(
+                        onTap: () {
+                          _showPicker(context);
+                        },
+                        child: CircleAvatar(
+                          radius: 55,
+                          backgroundColor: Color(0xffFDCF09),
+                          child: _image != null
+                              ? ClipRRect(
+                                  borderRadius: BorderRadius.circular(50),
+                                  child: Image.file(
+                                    _image,
+                                    width: 120,
+                                    height: 120,
+                                    fit: BoxFit.fitHeight,
+                                  ),
+                                )
+                              : Container(
+                                  decoration: BoxDecoration(
+                                      color: Colors.grey[200],
+                                      borderRadius: BorderRadius.circular(50)),
+                                  width: 120,
+                                  height: 120,
+                                  child: Transform.scale(
+                                    scale: 2.0,
+                                    child: Icon(
+                                      Icons.person,
+                                      color: Colors.grey[800],
+                                    ),
+                                  )),
+                        ),
                       ),
-                    )
-                  : Container(
-                      decoration: BoxDecoration(
-                          color: Colors.grey[200],
-                          borderRadius: BorderRadius.circular(50)),
-                      width: 100,
-                      height: 100,
-                      child: Icon(
-                        Icons.camera_alt,
-                        color: Colors.grey[800],
+                    )),
+                    Container(
+                      padding: EdgeInsets.all(5.0),
+                      alignment: Alignment.bottomCenter,
+                      
+                      child: Text(
+                        "Miranda Lopez",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 22.0,
+                            fontWeight: FontWeight.w700),
                       ),
                     ),
+                  ],
+                ),
+                Positioned(
+                    bottom: 50,
+                    left: 210,
+                    child: GestureDetector(
+                      onTap: () {
+                        _showPicker(context);
+                      },
+                      child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(50)),
+                          width: 45,
+                          height: 45,
+                          margin: EdgeInsets.all(10),
+                          child: Transform.scale(
+                            scale: 1.0,
+                            child: Icon(
+                              Icons.camera_alt,
+                              color: Colors.black,
+                            ),
+                          )),
+                    ))
+              ],
             ),
-          ),
-        ),
-
+            Container(
+              height: 360,
+              padding: EdgeInsets.only(left: 20, right:20),
+              child: ListView(
+                children: <Widget>[
+                  _buildCards(
+                'My Account',
+                Icon(
+                  Icons.people_outline,
+                ),
+                new MyAccount()),
             Padding(
                 padding: EdgeInsets.only(bottom: 40),
                 child: _buildCards('Change Password', Icon(Icons.vpn_key),
@@ -165,10 +283,13 @@ class _MainProfileState extends State<MainProfile> {
             _buildCards(
                 'Notifications', Icon(Icons.notifications), new MyAccount()),
             _buildCards('Logout', Icon(Icons.notifications), MyAccount()),
+                ]
+              ),
+            ),
             Padding(
-              padding: EdgeInsets.only(top: 50, right: 10, left: 10),
+              padding: EdgeInsets.only(top: 10, right: 20, left: 30),
               child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
                       'Enable Notifications ',
@@ -182,6 +303,7 @@ class _MainProfileState extends State<MainProfile> {
                         scale: 1.5,
                         child: Switch(
                             value: val,
+                            activeColor: Colors.indigo[400],
                             onChanged: (newVal) {
                               onSwitchValueChanges(newVal);
                             }))
