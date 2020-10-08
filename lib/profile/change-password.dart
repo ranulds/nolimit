@@ -81,6 +81,7 @@ class _ChangePasswordState extends State<ChangePassword> {
           selectedItemColor: Colors.black,
           onTap: _onItemTapped,
         ),
+        primary: false,
         body: Container(
             margin: EdgeInsets.all(30),
             // height: 600,

@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:nolimit/gallery/gallery.dart';
 import 'package:nolimit/profile/main-profile.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
-
+import 'package:toast/toast.dart';
 
 class MobileVerification extends StatefulWidget {
   @override
@@ -11,9 +11,9 @@ class MobileVerification extends StatefulWidget {
 }
 
 class _MobileVerificationState extends State<MobileVerification> {
-   int _selectedIndex = 2;
+  int _selectedIndex = 2;
 
-  Widget getButton(String title, colorVal, double hval) {
+  Widget getButton(String title, colorVal, double hval, String toastText) {
     return RaisedButton(
       elevation: 6.0,
       child: Text(
@@ -24,6 +24,7 @@ class _MobileVerificationState extends State<MobileVerification> {
         ),
       ),
       onPressed: () {
+        Toast.show(toastText, context, duration: Toast.LENGTH_LONG, gravity:  Toast.BOTTOM);
         Navigator.of(context).pop();
       },
       color: colorVal,
@@ -33,7 +34,8 @@ class _MobileVerificationState extends State<MobileVerification> {
       ),
     );
   }
-void _onItemTapped(int index) {
+
+  void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
@@ -46,7 +48,8 @@ void _onItemTapped(int index) {
           MaterialPageRoute(builder: (_) => Gallery()),
           (Route<dynamic> route) => false);
     else if (index == 2)
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => MainProfile()));
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (_) => MainProfile()));
   }
 
   Widget _getCodeFeilds() {
@@ -90,30 +93,31 @@ void _onItemTapped(int index) {
               )),
         ),
         bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
-        showSelectedLabels: true,
-        showUnselectedLabels: true,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            title: Text('Wishlist'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_basket),
-            title: Text('Gallery'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            title: Text('Profile'),
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
-        onTap: _onItemTapped,
-      ),
-        body: Container(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,    
+          backgroundColor: Colors.white,
+          showSelectedLabels: true,
+          showUnselectedLabels: true,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.favorite),
+              title: Text('Wishlist'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_basket),
+              title: Text('Gallery'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle),
+              title: Text('Profile'),
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.black,
+          onTap: _onItemTapped,
+        ),
+        primary: false,
+        body: SingleChildScrollView(
+          child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
@@ -143,13 +147,14 @@ void _onItemTapped(int index) {
                         ],
                       )),
                 )),
-                Padding(padding: EdgeInsets.only(top:80, bottom: 40),
-                  child: Center(
-                    child: getButton('Submit', Colors.black87, 140),)
-                    ),
-                
-                Center(child: getButton('Resend Code ', Colors.blueGrey[500], 110),),
-            
+            Padding(
+                padding: EdgeInsets.only(top: 80, bottom: 40),
+                child: Center(
+                  child: getButton('Submit', Colors.black87, 140, 'Verified'),
+                )),
+            Center(
+              child: getButton('Resend Code ', Colors.blueGrey[500], 110, 'Verification Code sent'),
+            ),
           ],
         )));
   }

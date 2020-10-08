@@ -34,7 +34,7 @@ dependencies:
   pinch_zoom_image_last: ^0.3.1
   flutter_simple_rating_bar: ^0.0.3
   image_picker: ^0.6.6+5
-
+  toast: ^0.1.5
 dev_dependencies:
   flutter_test:
     sdk: flutter

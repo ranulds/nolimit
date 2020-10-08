@@ -217,6 +217,7 @@ class _MainProfileState extends State<MainProfile> {
         selectedItemColor: Colors.black,
         onTap: _onItemTapped,
       ),
+      primary: false,
       body: Container(
         //height: 100.0,
         child: ListView(
@@ -304,7 +305,10 @@ class _MainProfileState extends State<MainProfile> {
                               color: Colors.black,
                             ),
                           )),
-                    ))
+                    )),
+                    // Positioned(
+                    //   top: 250,
+                    //   child: )
               ],
             ),
             Container(

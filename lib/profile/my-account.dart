@@ -12,6 +12,18 @@ class MyAccount extends StatefulWidget {
 class _MyAccountState extends State<MyAccount> {
   DateTime selectedDate = DateTime.now();
   int _selectedIndex = 2;
+  final _emailtext = TextEditingController(text: 'miranda@gmail.com');
+  final _nametext = TextEditingController(text: 'Miranda Lopez');
+  final _numberText = TextEditingController();
+  bool _validate = true;
+  bool _nameValidate = true;
+  bool _numberValidate = true;
+
+  @override
+  void dispose() {
+    _emailtext.dispose();
+    super.dispose();
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -85,22 +97,34 @@ class _MyAccountState extends State<MyAccount> {
           selectedItemColor: Colors.black,
           onTap: _onItemTapped,
         ),
+        primary: false,
         body: Container(
             margin: EdgeInsets.all(20),
             child: ListView(
               children: <Widget>[
                 TextFormField(
-                  decoration: InputDecoration(labelText: 'Full Name *'),
+                  decoration: InputDecoration(labelText: 'Full Name *', 
+                  errorText: (_nameValidate == false) ? 'Name can\'t be empty ': null),
+                  textAlign: TextAlign.left,
+                  controller: _nametext,
+                  
                 ),
                 Padding(
                     padding: EdgeInsets.only(top: 10),
                     child: TextFormField(
-                      decoration: InputDecoration(labelText: 'Email *'),
+                      controller: _emailtext,
+                      decoration: InputDecoration(
+                          labelText: 'Email *',
+                          errorText:
+                              (_validate == false) ? 'email can\'t Be empty' : null),
                     )),
                 Padding(
                     padding: EdgeInsets.only(top: 10),
                     child: TextFormField(
-                      decoration: InputDecoration(labelText: 'Mobile Number *'),
+                      controller: _numberText,
+                      decoration: InputDecoration(
+                        labelText: 'Mobile Number *',
+                        errorText: (_numberValidate == false) ?'Mobile Number can\'t be empty': null),
                       keyboardType: TextInputType.number,
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.digitsOnly
@@ -145,7 +169,20 @@ class _MyAccountState extends State<MyAccount> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.of(context).pop();
+                      setState(() {
+                        _emailtext.text.isEmpty
+                            ? _validate = false
+                            : _validate = true;
+                        _nametext.text.isEmpty
+                            ? _nameValidate = false
+                            : _nameValidate = true;
+                        _numberText.text.isEmpty
+                            ? _numberValidate = false
+                            :_numberValidate = true;        
+                      });
+
+                      if(_validate && _nameValidate && _numberValidate)
+                        Navigator.of(context).pop();
                     },
                     color: Colors.black87,
                     padding:
