@@ -30,9 +30,6 @@ class _GalleryState extends State<Gallery> {
           (Route<dynamic> route) => false);
     else if (index == 2)
       Navigator.of(context).push(MaterialPageRoute(builder: (_) => MainProfile()));
-      //Navigator.of(context).push(MaterialPageRoute(builder: (_) => RanulMap()));
-      //Navigator.of(context).push(MaterialPageRoute(builder: (_) => Brands()));
-
   }
 
   @override

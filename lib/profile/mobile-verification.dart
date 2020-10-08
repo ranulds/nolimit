@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:nolimit/gallery/gallery.dart';
+import 'package:nolimit/profile/main-profile.dart';
+import 'package:nolimit/wishlist/wishlist.dart';
+
 
 class MobileVerification extends StatefulWidget {
   @override
@@ -7,6 +11,8 @@ class MobileVerification extends StatefulWidget {
 }
 
 class _MobileVerificationState extends State<MobileVerification> {
+   int _selectedIndex = 2;
+
   Widget getButton(String title, colorVal, double hval) {
     return RaisedButton(
       elevation: 6.0,
@@ -26,6 +32,21 @@ class _MobileVerificationState extends State<MobileVerification> {
         borderRadius: new BorderRadius.circular(30.0),
       ),
     );
+  }
+void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+    if (index == 0)
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (_) => WishList()),
+          (Route<dynamic> route) => false);
+    else if (index == 1)
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (_) => Gallery()),
+          (Route<dynamic> route) => false);
+    else if (index == 2)
+      Navigator.of(context).push(MaterialPageRoute(builder: (_) => MainProfile()));
   }
 
   Widget _getCodeFeilds() {
@@ -59,7 +80,6 @@ class _MobileVerificationState extends State<MobileVerification> {
             onPressed: () => Navigator.of(context).pop(),
           ),
           primary: false,
-          elevation: 0,
           iconTheme: IconThemeData(color: Colors.black),
           backgroundColor: Colors.white,
           title: Text('Mobile Verification',
@@ -69,6 +89,28 @@ class _MobileVerificationState extends State<MobileVerification> {
                 fontWeight: FontWeight.bold,
               )),
         ),
+        bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            title: Text('Wishlist'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_basket),
+            title: Text('Gallery'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle),
+            title: Text('Profile'),
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.black,
+        onTap: _onItemTapped,
+      ),
         body: Container(
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,    

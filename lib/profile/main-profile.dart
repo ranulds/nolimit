@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:nolimit/gallery/gallery.dart';
 import 'package:nolimit/profile/my-account.dart';
 import 'package:nolimit/profile/change-password.dart';
 import 'package:nolimit/profile/mobile-verification.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
+
+import 'package:nolimit/wishlist/wishlist.dart';
 
 class MainProfile extends StatefulWidget {
   @override
@@ -11,6 +14,7 @@ class MainProfile extends StatefulWidget {
 }
 
 class _MainProfileState extends State<MainProfile> {
+  int _selectedIndex = 2;
   bool val = false;
   File _image;
   final _picker = ImagePicker();
@@ -170,9 +174,49 @@ class _MainProfileState extends State<MainProfile> {
     );
   }
 
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+    if (index == 0)
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (_) => WishList()),
+          (Route<dynamic> route) => false);
+    else if (index == 1)
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (_) => Gallery()),
+          (Route<dynamic> route) => false);
+    else if (index == 2)
+      Navigator.of(context).push(MaterialPageRoute(builder: (_) => MainProfile()));
+      //Navigator.of(context).push(MaterialPageRoute(builder: (_) => RanulMap()));
+      //Navigator.of(context).push(MaterialPageRoute(builder: (_) => Brands()));
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            title: Text('Wishlist'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_basket),
+            title: Text('Gallery'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle),
+            title: Text('Profile'),
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.black,
+        onTap: _onItemTapped,
+      ),
       body: Container(
         //height: 100.0,
         child: ListView(
