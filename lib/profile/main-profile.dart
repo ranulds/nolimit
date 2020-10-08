@@ -155,7 +155,7 @@ class _MainProfileState extends State<MainProfile> {
         });
   }
 
-  Widget _buildCards(String title, Icon icon, Object navPage) {
+  Widget _buildCards(String title, icon, Object navPage) {
     return Card(
       elevation: 8.0,
       child: ListTile(
@@ -282,7 +282,7 @@ class _MainProfileState extends State<MainProfile> {
                 new MobileVerification()),
             _buildCards(
                 'Notifications', Icon(Icons.notifications), new MyAccount()),
-            _buildCards('Logout', Icon(Icons.notifications), MyAccount()),
+            _buildCards('Logout', Icon(Icons.call_missed_outgoing), MyAccount()),
                 ]
               ),
             ),
