@@ -155,7 +155,7 @@ class _MainProfileState extends State<MainProfile> {
         });
   }
 
-  Widget _buildCards(String title, icon, Object navPage) {
+  Widget _buildCards(String title, Icon icon, Object navPage) {
     return Card(
       elevation: 8.0,
       child: ListTile(
