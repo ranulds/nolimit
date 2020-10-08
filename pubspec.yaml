@@ -33,6 +33,7 @@ dependencies:
   floating_pullup_card: ^0.2.2
   pinch_zoom_image_last: ^0.3.1
   flutter_simple_rating_bar: ^0.0.3
+  image_picker: ^0.6.6+5
 
 dev_dependencies:
   flutter_test:

@@ -40,15 +40,14 @@ class _ChangePasswordState extends State<ChangePassword> {
         ),
         body: Container(
             margin: EdgeInsets.all(30),
-            // child: Expanded(
-            child: Column(
+            child: ListView(
               children: <Widget>[
                 Card(
                     
                     child: Padding(
                   padding: const EdgeInsets.only(
                       top: 20, left: 30, bottom: 20, right: 10),
-                  child: Column(children: [
+                  child: ListView(children: [
                     TextFormField(
                       decoration: InputDecoration(labelText: 'New Password'),
                       obscureText: true,
@@ -79,7 +78,6 @@ class _ChangePasswordState extends State<ChangePassword> {
                 )
               ],
             )
-            //), remved due to exceptions
             ));
   }
 }
