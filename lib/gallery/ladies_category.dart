@@ -79,7 +79,7 @@ class _LadiesCategoryState extends State<LadiesCategory> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.blue[900],
         onTap: _onItemTapped,
       ),
       primary: false,

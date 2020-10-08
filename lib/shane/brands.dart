@@ -59,7 +59,6 @@ class _GalleryState extends State<Brands> {
       primary: false,
       appBar: AppBar(
         primary: false,
-        elevation: 0,
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         centerTitle: true,
@@ -79,19 +78,20 @@ class _GalleryState extends State<Brands> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0),
-              child: Text(
-                'Brands',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
-              ),
-            ),
-            SizedBox(
-              height: 5,
-            ),
             Expanded(
               child: ListView(
                 children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Text(
+                      'Brands',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
                   GestureDetector(
                     onTap: () => Navigator.of(context)
                         .push(MaterialPageRoute(builder: (_) => BrandDetail())),
