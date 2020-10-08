@@ -66,7 +66,6 @@ class _BrandDetailState extends State<BrandDetail> {
           onPressed: () => Navigator.of(context).pop(),
         ),
         primary: false,
-        elevation: 0,
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         centerTitle: true,

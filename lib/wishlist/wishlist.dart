@@ -69,7 +69,7 @@ class _WishListState extends State<WishList> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.blue[900],
         onTap: _onItemTapped,
       ),
       primary: false,

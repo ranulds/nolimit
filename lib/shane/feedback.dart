@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_simple_rating_bar/flutter_simple_rating_bar.dart';
+import 'package:nolimit/util/base.dart';
 import 'package:nolimit/gallery/gallery.dart';
 import 'package:nolimit/shane/brands.dart';
 import 'package:nolimit/shane/notifications.dart';
@@ -10,7 +12,7 @@ class FeedBack extends StatefulWidget {
   _FeedBackState createState() => _FeedBackState();
 }
 
-class _FeedBackState extends State<FeedBack> {
+class _FeedBackState extends BaseState<FeedBack> {
   int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
@@ -175,7 +177,10 @@ class _FeedBackState extends State<FeedBack> {
                           Text('Send'),
                         ],
                       ),
-                      onPressed: () => showAlert(context),
+                      onPressed: () {
+                        showAlert(context);
+                        FocusScope.of(context).unfocus();
+                      },
                     ),
                   ),
                   SizedBox(
