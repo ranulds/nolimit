@@ -14,6 +14,7 @@ class FeedBack extends StatefulWidget {
 
 class _FeedBackState extends BaseState<FeedBack> {
   int _selectedIndex = 1;
+  final _formKey = GlobalKey<FormState>();
 
   void _onItemTapped(int index) {
     setState(() {
@@ -136,7 +137,7 @@ class _FeedBackState extends BaseState<FeedBack> {
                       allowHalfRating: true,
                       onRatingCallback:
                           (double value, ValueNotifier<bool> isIndicator) {
-                        //change the isIndicator from false  to true ,the       RatingBar cannot support touch event;
+                        //change the isIndicator from false  to true ,the RatingBar cannot support touch event;
                         isIndicator.value = false;
                       },
                       color: Colors.amber,
@@ -155,10 +156,19 @@ class _FeedBackState extends BaseState<FeedBack> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: TextFormField(
-                      keyboardType: TextInputType.multiline,
-                      maxLines: 8,
-                      maxLength: 1000,
+                    child: Form(
+                      key: _formKey,
+                      child: TextFormField(
+                        keyboardType: TextInputType.multiline,
+                        maxLines: 8,
+                        maxLength: 1000,
+                        validator: (value) {
+                          if (value.isEmpty) {
+                            return 'Please enter your feedback';
+                          }
+                          return null;
+                        },
+                      ),
                     ),
                   ),
                   Center(
@@ -178,8 +188,10 @@ class _FeedBackState extends BaseState<FeedBack> {
                         ],
                       ),
                       onPressed: () {
-                        showAlert(context);
                         FocusScope.of(context).unfocus();
+                        if (_formKey.currentState.validate()) {
+                          showAlert(context);
+                        }
                       },
                     ),
                   ),
