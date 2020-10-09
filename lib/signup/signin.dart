@@ -93,12 +93,10 @@ class _SigninPageState extends State<SigninPage> {
                         elevation: 7.0,
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => CarouselPage(),
-                              ),
-                            );
+                            Navigator.of(context).pushAndRemoveUntil(
+                                MaterialPageRoute(
+                                    builder: (_) => CarouselPage()),
+                                (Route<dynamic> route) => false);
                           },
                           child: Center(
                             child: Text(
