@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:nolimit/gallery/ladies_sub_categories.dart';
+import 'package:nolimit/home/carousel.dart';
 import 'package:nolimit/map/map.dart';
+import 'package:nolimit/shane/feedback.dart';
+import 'package:nolimit/signup/signin.dart';
+import 'package:nolimit/signup/signup.dart';
 
 import 'package:nolimit/profile/main-profile.dart';
 
 import 'package:nolimit/shane/brands.dart';
 import 'package:nolimit/shane/notifications.dart';
+import 'package:nolimit/util/drawer.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 
 class Gallery extends StatefulWidget {
@@ -29,13 +34,14 @@ class _GalleryState extends State<Gallery> {
           MaterialPageRoute(builder: (_) => Gallery()),
           (Route<dynamic> route) => false);
     else if (index == 2)
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => MainProfile()));
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (_) => MainProfile()));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: AppDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         showSelectedLabels: true,
@@ -83,6 +89,9 @@ class _GalleryState extends State<Gallery> {
             Expanded(
               child: ListView(
                 children: [
+                  SizedBox(
+                    height: 20,
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(left: 20.0),
                     child: Text(
