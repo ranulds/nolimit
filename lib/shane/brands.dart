@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:nolimit/gallery/gallery.dart';
 import 'package:nolimit/gallery/ladies_sub_categories.dart';
 import 'package:nolimit/map/map.dart';
-import 'package:nolimit/signup/signin.dart';
-import 'package:nolimit/signup/signup.dart';
-
-import 'package:nolimit/profile/main-profile.dart';
-
-import 'package:nolimit/shane/brands.dart';
+import 'package:nolimit/shane/brand_detail.dart';
+import 'package:nolimit/shane/feedback.dart';
 import 'package:nolimit/shane/notifications.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 
-class Gallery extends StatefulWidget {
+class Brands extends StatefulWidget {
   @override
   _GalleryState createState() => _GalleryState();
 }
 
-class _GalleryState extends State<Gallery> {
+class _GalleryState extends State<Brands> {
   int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
@@ -23,137 +20,20 @@ class _GalleryState extends State<Gallery> {
       _selectedIndex = index;
     });
     if (index == 0)
-      Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (_) => WishList()),
-          (Route<dynamic> route) => false);
+      Navigator.of(context).push(MaterialPageRoute(builder: (_) => FeedBack()));
     else if (index == 1)
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(builder: (_) => Gallery()),
           (Route<dynamic> route) => false);
     else if (index == 2)
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (_) => MainProfile()));
+          .push(MaterialPageRoute(builder: (_) => GoogleCustomMap()));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            new UserAccountsDrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.black,
-              ),
-              accountName: Text(
-                ' Hello!! Andrew Peries',
-                style: TextStyle(fontSize: 20.0),
-              ),
-              accountEmail: Text('andrewperies@nolimit.lk'),
-              currentAccountPicture: CircleAvatar(
-                backgroundImage: NetworkImage(
-                    'https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/female_woman_avatar_portrait_1-512.png'),
-              ),
-            ),
-            new ListTile(
-              title: Text(
-                'Home',
-                style: TextStyle(fontFamily: "Tomorrow", fontSize: 25.0),
-              ),
-              onTap: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            new Divider(
-              color: Colors.black,
-              height: 25.0,
-            ),
-            new ListTile(
-              title: Text(
-                'Gallery',
-                style: TextStyle(fontFamily: "Tomorrow", fontSize: 25.0),
-              ),
-              onTap: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            new Divider(
-              color: Colors.black,
-              height: 25.0,
-            ),
-            new ListTile(
-              title: Text(
-                'Brands',
-                style: TextStyle(fontFamily: "Tomorrow", fontSize: 25.0),
-              ),
-              onTap: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            new Divider(
-              color: Colors.black,
-              height: 25.0,
-            ),
-            new ListTile(
-              title: Text(
-                'Profile',
-                style: TextStyle(fontFamily: "Tomorrow", fontSize: 25.0),
-              ),
-              onTap: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            new Divider(
-              color: Colors.black,
-              height: 25.0,
-            ),
-            new ListTile(
-              title: Text(
-                'Map',
-                style: TextStyle(fontFamily: "Tomorrow", fontSize: 25.0),
-              ),
-              onTap: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            new Divider(
-              color: Colors.black,
-              height: 25.0,
-            ),
-            new ListTile(
-              title: Text(
-                'Feedback',
-                style: TextStyle(fontFamily: "Tomorrow", fontSize: 25.0),
-              ),
-              onTap: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            new Divider(
-              color: Colors.black,
-              height: 25.0,
-            ),
-            new ListTile(
-              title: Text(
-                'Logout',
-                style: TextStyle(fontFamily: "Tomorrow", fontSize: 25.0),
-              ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => SigninPage(),
-                  ),
-                );
-              },
-            ),
-            new Divider(
-              color: Colors.black,
-              height: 25.0,
-            ),
-          ],
-        ),
-      ),
+      drawer: Drawer(),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         showSelectedLabels: true,
@@ -173,7 +53,7 @@ class _GalleryState extends State<Gallery> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue[900],
+        selectedItemColor: Colors.black54,
         onTap: _onItemTapped,
       ),
       primary: false,
@@ -204,7 +84,7 @@ class _GalleryState extends State<Gallery> {
                   Padding(
                     padding: const EdgeInsets.only(left: 20.0),
                     child: Text(
-                      'Categories',
+                      'Brands',
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
                     ),
@@ -213,20 +93,20 @@ class _GalleryState extends State<Gallery> {
                     height: 5,
                   ),
                   GestureDetector(
-                    onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => LadiesSubCategory())),
+                    onTap: () => Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (_) => BrandDetail())),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       child: Stack(
                         children: [
                           Image.asset(
-                            'images/pexels-lucas-queiroz-1852382 (1).jpg',
+                            'images/adidas.jpg',
                           ),
                           Positioned.fill(
                             child: Align(
                               alignment: Alignment.center,
                               child: Text(
-                                'Ladies',
+                                'Adidas',
                                 style: TextStyle(
                                     fontSize: 40,
                                     fontWeight: FontWeight.bold,
@@ -244,20 +124,20 @@ class _GalleryState extends State<Gallery> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => LadiesSubCategory())),
+                    onTap: () => Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (_) => BrandDetail())),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       child: Stack(
                         children: [
                           Image.asset(
-                            'images/pexels-marlene-leppänen-1183266.jpg',
+                            'images/puma.jpg',
                           ),
                           Positioned.fill(
                             child: Align(
                               alignment: Alignment.center,
                               child: Text(
-                                'Gents',
+                                'Puma',
                                 style: TextStyle(
                                     fontSize: 40,
                                     fontWeight: FontWeight.bold,
@@ -275,20 +155,20 @@ class _GalleryState extends State<Gallery> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => LadiesSubCategory())),
+                    onTap: () => Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (_) => BrandDetail())),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       child: Stack(
                         children: [
                           Image.asset(
-                            'images/kids.jpg',
+                            'images/lacoste.jpg',
                           ),
                           Positioned.fill(
                             child: Align(
                               alignment: Alignment.center,
                               child: Text(
-                                'Kids',
+                                'Lacoste',
                                 style: TextStyle(
                                     fontSize: 40,
                                     fontWeight: FontWeight.bold,
@@ -306,51 +186,20 @@ class _GalleryState extends State<Gallery> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => LadiesSubCategory())),
+                    onTap: () => Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (_) => BrandDetail())),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       child: Stack(
                         children: [
                           Image.asset(
-                            'images/acc.jpg',
+                            'images/nike.jpg',
                           ),
                           Positioned.fill(
                             child: Align(
                               alignment: Alignment.center,
                               child: Text(
-                                'Accessories',
-                                style: TextStyle(
-                                    fontSize: 40,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      elevation: 5,
-                      margin: EdgeInsets.all(20),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => LadiesSubCategory())),
-                    child: Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      child: Stack(
-                        children: [
-                          Image.asset(
-                            'images/homeware.jpg',
-                          ),
-                          Positioned.fill(
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                'Homeware',
+                                'Nike',
                                 style: TextStyle(
                                     fontSize: 40,
                                     fontWeight: FontWeight.bold,
