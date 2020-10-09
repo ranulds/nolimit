@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nolimit/gallery/ladies_sub_categories.dart';
 import 'package:nolimit/map/map.dart';
+import 'package:nolimit/signup/signin.dart';
+import 'package:nolimit/signup/signup.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 
 class Gallery extends StatefulWidget {
@@ -30,7 +32,122 @@ class _GalleryState extends State<Gallery> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            new UserAccountsDrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.black,
+              ),
+              accountName: Text(
+                ' Hello!! Andrew Peries',
+                style: TextStyle(fontSize: 20.0),
+              ),
+              accountEmail: Text('andrewperies@nolimit.lk'),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage(
+                    'https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/female_woman_avatar_portrait_1-512.png'),
+              ),
+            ),
+            new ListTile(
+              title: Text(
+                'Home',
+                style: TextStyle(fontFamily: "Tomorrow", fontSize: 25.0),
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            new Divider(
+              color: Colors.black,
+              height: 25.0,
+            ),
+            new ListTile(
+              title: Text(
+                'Gallery',
+                style: TextStyle(fontFamily: "Tomorrow", fontSize: 25.0),
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            new Divider(
+              color: Colors.black,
+              height: 25.0,
+            ),
+            new ListTile(
+              title: Text(
+                'Brands',
+                style: TextStyle(fontFamily: "Tomorrow", fontSize: 25.0),
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            new Divider(
+              color: Colors.black,
+              height: 25.0,
+            ),
+            new ListTile(
+              title: Text(
+                'Profile',
+                style: TextStyle(fontFamily: "Tomorrow", fontSize: 25.0),
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            new Divider(
+              color: Colors.black,
+              height: 25.0,
+            ),
+            new ListTile(
+              title: Text(
+                'Map',
+                style: TextStyle(fontFamily: "Tomorrow", fontSize: 25.0),
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            new Divider(
+              color: Colors.black,
+              height: 25.0,
+            ),
+            new ListTile(
+              title: Text(
+                'Feedback',
+                style: TextStyle(fontFamily: "Tomorrow", fontSize: 25.0),
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            new Divider(
+              color: Colors.black,
+              height: 25.0,
+            ),
+            new ListTile(
+              title: Text(
+                'Logout',
+                style: TextStyle(fontFamily: "Tomorrow", fontSize: 25.0),
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SigninPage(),
+                  ),
+                );
+              },
+            ),
+            new Divider(
+              color: Colors.black,
+              height: 25.0,
+            ),
+          ],
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         showSelectedLabels: false,
@@ -119,17 +236,21 @@ class _GalleryState extends State<Gallery> {
                       margin: EdgeInsets.all(20),
                     ),
                   ),
-                  Card(
-                    semanticContainer: true,
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    child: Image.asset(
-                      'images/placeimg_640_480_people (1).jpg',
+                  GestureDetector(
+                    onTap: () => Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (_) => SignupPage())),
+                    child: Card(
+                      semanticContainer: true,
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      child: Image.asset(
+                        'images/placeimg_640_480_people (1).jpg',
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      elevation: 5,
+                      margin: EdgeInsets.all(20),
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
-                    ),
-                    elevation: 5,
-                    margin: EdgeInsets.all(20),
                   ),
                   Card(
                     semanticContainer: true,
