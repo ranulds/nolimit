@@ -55,13 +55,12 @@ class _GalleryState extends State<Gallery> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.blue[900],
         onTap: _onItemTapped,
       ),
       primary: false,
       appBar: AppBar(
         primary: false,
-        elevation: 0,
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         centerTitle: true,
@@ -81,19 +80,20 @@ class _GalleryState extends State<Gallery> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0),
-              child: Text(
-                'Categories',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
-              ),
-            ),
-            SizedBox(
-              height: 5,
-            ),
             Expanded(
               child: ListView(
                 children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Text(
+                      'Categories',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
                   GestureDetector(
                     onTap: () => Navigator.of(context).push(
                         MaterialPageRoute(builder: (_) => LadiesSubCategory())),
