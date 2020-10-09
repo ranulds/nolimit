@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:nolimit/gallery/gallery.dart';
 import 'package:nolimit/profile/main-profile.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
@@ -11,10 +12,12 @@ class MyAccount extends StatefulWidget {
 
 class _MyAccountState extends State<MyAccount> {
   DateTime selectedDate = DateTime.now();
+  //final DateFormat serverFormater = DateFormat('dd-MM-yyyy'); Use this class to format date if needed
   int _selectedIndex = 2;
   final _emailtext = TextEditingController(text: 'miranda@gmail.com');
   final _nametext = TextEditingController(text: 'Miranda Lopez');
   final _numberText = TextEditingController();
+  final _dateText = TextEditingController();
   bool _validate = true;
   bool _nameValidate = true;
   bool _numberValidate = true;
@@ -53,6 +56,7 @@ class _MyAccountState extends State<MyAccount> {
     if (picked != null && picked != selectedDate)
       setState(() {
         selectedDate = picked;
+        _dateText.text = picked.day.toString() + '-' + picked.month.toString() + '-' + picked.year.toString();
       });
   }
 
@@ -78,7 +82,9 @@ class _MyAccountState extends State<MyAccount> {
               )),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.white,
+          elevation: 5.0,
+        iconSize: 30,
+        backgroundColor: Colors.grey[100],
           showSelectedLabels: true,
           showUnselectedLabels: true,
           items: const <BottomNavigationBarItem>[
@@ -87,7 +93,7 @@ class _MyAccountState extends State<MyAccount> {
               title: Text('Wishlist'),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_basket),
+              icon: Icon(Icons.shopping_basket),//FlutterIcons.shopping_bag_ent
               title: Text('Gallery'),
             ),
             BottomNavigationBarItem(
@@ -105,26 +111,34 @@ class _MyAccountState extends State<MyAccount> {
             child: ListView(
               children: <Widget>[
                 TextFormField(
-                  decoration: InputDecoration(labelText: 'Full Name *', 
+                  decoration: InputDecoration(
+                  labelText: 'Full Name *', 
+                  labelStyle: TextStyle(fontSize: 18),
+                  floatingLabelBehavior: FloatingLabelBehavior.always,
                   errorText: (_nameValidate == false) ? 'Name can\'t be empty ': null),
-                  textAlign: TextAlign.left,
+                  
                   controller: _nametext,
                   
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: 10),
+                    padding: EdgeInsets.only(top: 15),
                     child: TextFormField(
+                      
                       controller: _emailtext,
                       decoration: InputDecoration(
                           labelText: 'Email *',
+                          labelStyle: TextStyle(fontSize: 18),
+                  floatingLabelBehavior: FloatingLabelBehavior.always,
                           errorText:
                               (_validate == false) ? 'email can\'t Be empty' : null),
                     )),
                 Padding(
-                    padding: EdgeInsets.only(top: 10),
+                    padding: EdgeInsets.only(top: 15),
                     child: TextFormField(
                       controller: _numberText,
                       decoration: InputDecoration(
+                        labelStyle: TextStyle(fontSize: 18),
+                  floatingLabelBehavior: FloatingLabelBehavior.always,
                         labelText: 'Mobile Number *',
                         errorText: (_numberValidate == false) ?'Mobile Number can\'t be empty': null),
                       keyboardType: TextInputType.number,
@@ -133,26 +147,34 @@ class _MyAccountState extends State<MyAccount> {
                       ],
                     )),
                 Padding(
-                    padding: EdgeInsets.only(top: 10),
+                    padding: EdgeInsets.only(top: 15),
                     child: TextFormField(
                       decoration:
-                          InputDecoration(labelText: 'Arapaima Card Number'),
+                          InputDecoration(labelText: 'Arapaima Card Number',
+                          labelStyle: TextStyle(fontSize: 18),
+                  floatingLabelBehavior: FloatingLabelBehavior.always,),
                       keyboardType: TextInputType.number,
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.digitsOnly
                       ],
                     )),
                 Padding(
-                    padding: EdgeInsets.only(top: 10),
+                    padding: EdgeInsets.only(top: 15),
                     child: TextFormField(
-                      decoration: InputDecoration(labelText: 'NIC'),
+                      
+                      decoration: InputDecoration(labelText: 'NIC', 
+                      labelStyle: TextStyle(fontSize: 18),
+                  floatingLabelBehavior: FloatingLabelBehavior.always,),
                     )),
                 Padding(
-                    padding: EdgeInsets.only(top: 10),
+                    padding: EdgeInsets.only(top: 15),
                     child: TextFormField(
+                      controller: _dateText,
                       decoration: InputDecoration(
+                        labelStyle: TextStyle(fontSize: 18),
+                  floatingLabelBehavior: FloatingLabelBehavior.always,
                           labelText: 'Birth Date ',
-                          suffixIcon: Icon(Icons.calendar_today)),
+                          suffixIcon: Icon(Icons.calendar_today, size: 26, color: Colors.blue,)),
                       onTap: () {
                         // Below line stops keyboard from appearing
                         FocusScope.of(context).requestFocus(new FocusNode());

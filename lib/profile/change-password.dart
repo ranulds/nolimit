@@ -34,13 +34,15 @@ class _ChangePasswordState extends State<ChangePassword> {
       ),
     );
   }
-@override
+
+  @override
   void dispose() {
     _passwordText.dispose();
     _newPasswordText.dispose();
     _confirmPasswordText.dispose();
     super.dispose();
   }
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -80,7 +82,9 @@ class _ChangePasswordState extends State<ChangePassword> {
               )),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.white,
+          elevation: 5.0,
+          iconSize: 30,
+          backgroundColor: Colors.grey[100],
           showSelectedLabels: true,
           showUnselectedLabels: true,
           items: const <BottomNavigationBarItem>[
@@ -150,7 +154,9 @@ class _ChangePasswordState extends State<ChangePassword> {
                                   labelText: 'Confirm Password',
                                   errorText: (_confirmPasswordValidate == false)
                                       ? 'password can\'t be empty '
-                                      : ((_passwordMatch==false)? 'passwords does not match': null),
+                                      : ((_passwordMatch == false)
+                                          ? 'passwords does not match'
+                                          : null),
                                   // labelStyle: new TextStyle(color: Colors.blue[900])
                                 ),
                                 obscureText: true,

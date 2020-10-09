@@ -6,7 +6,7 @@ import 'package:nolimit/profile/mobile-verification.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:nolimit/shane/notifications.dart';
 import 'dart:io';
-
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 
 class MainProfile extends StatefulWidget {
@@ -78,9 +78,11 @@ class _MainProfileState extends State<MainProfile> {
         context: context,
         builder: (BuildContext bc) {
           return SafeArea(
-            
             child: Container(
-                decoration: BoxDecoration(borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20))),
                 margin: EdgeInsets.all(10),
                 child: new Wrap(children: <Widget>[
                   new Row(
@@ -162,6 +164,7 @@ class _MainProfileState extends State<MainProfile> {
 
   Widget _buildCards(String title, Icon icon, Object navPage) {
     return Card(
+      clipBehavior: Clip.hardEdge,
       elevation: 8.0,
       child: ListTile(
           leading: icon,
@@ -188,27 +191,30 @@ class _MainProfileState extends State<MainProfile> {
           MaterialPageRoute(builder: (_) => Gallery()),
           (Route<dynamic> route) => false);
     else if (index == 2)
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => MainProfile()));
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (_) => MainProfile()));
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         elevation: 5.0,
-        backgroundColor: Colors.white,
+        iconSize: 30,
+        backgroundColor: Colors.grey[100],
         showSelectedLabels: true,
         showUnselectedLabels: true,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
+            icon: Icon(Icons.favorite),//Icon(FlutterIcons.favorite_border_mdi),
             title: Text('Wishlist'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_basket),
+            icon: Icon(Icons.shopping_basket), //FlutterIcons.bag_sli
             title: Text('Gallery'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
+            icon: Icon(Icons.account_circle), //face_profile_mco//account_circle_mdi//account_circle_outline_mco//FlutterIcons.account_outline_mco
             title: Text('Profile'),
           ),
         ],
@@ -272,7 +278,6 @@ class _MainProfileState extends State<MainProfile> {
                     Container(
                       padding: EdgeInsets.all(5.0),
                       alignment: Alignment.bottomCenter,
-                      
                       child: Text(
                         "Miranda Lopez",
                         style: TextStyle(
@@ -305,33 +310,32 @@ class _MainProfileState extends State<MainProfile> {
                             ),
                           )),
                     )),
-                    // Positioned(
-                    //   top: 250,
-                    //   child: )
+               
               ],
             ),
             Container(
               height: 360,
-              padding: EdgeInsets.only(left: 20, right:20),
-              child: ListView(
-                children: <Widget>[
-                  _buildCards(
-                'My Account',
-                Icon(
-                  Icons.people_outline,
-                ),
-                new MyAccount()),
-            Padding(
-                padding: EdgeInsets.only(bottom: 40),
-                child: _buildCards('Change Password', Icon(Icons.vpn_key),
-                    new ChangePassword())),
-            _buildCards('Mobile Verification', Icon(Icons.mobile_screen_share),
-                new MobileVerification()),
-            _buildCards(
-                'Notifications', Icon(Icons.notifications), new Notifications()),
-            _buildCards('Logout', Icon(Icons.call_missed_outgoing), MyAccount()),
-                ]
-              ),
+              padding: EdgeInsets.only(left: 20, right: 20),
+              child: ListView(children: <Widget>[
+                _buildCards(
+                    'My Account',
+                    Icon(
+                      FlutterIcons.people_mdi,
+                    ),
+                    new MyAccount()),
+                Padding(
+                    padding: EdgeInsets.only(bottom: 40),
+                    child: _buildCards(
+                        'Change Password',
+                        Icon(FlutterIcons.key_mco), //device_mobile_oct key_mco
+                        new ChangePassword())),
+                _buildCards('Mobile Verification',
+                    Icon(Icons.mobile_screen_share), new MobileVerification()),
+                _buildCards('Notifications', Icon(Icons.notifications),
+                    new Notifications()),
+                _buildCards(
+                    'Logout', Icon(FlutterIcons.log_out_ent), MyAccount()),
+              ]),
             ),
             Padding(
               padding: EdgeInsets.only(top: 10, right: 20, left: 30),
@@ -350,7 +354,7 @@ class _MainProfileState extends State<MainProfile> {
                         scale: 1.5,
                         child: Switch(
                             value: val,
-                            activeColor: Colors.indigo[400],
+                            activeColor: Colors.blue[900], //olors.indigo[400]
                             onChanged: (newVal) {
                               onSwitchValueChanges(newVal);
                             }))

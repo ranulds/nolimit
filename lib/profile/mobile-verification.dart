@@ -25,7 +25,8 @@ class _MobileVerificationState extends State<MobileVerification> {
         ),
       ),
       onPressed: () {
-        Toast.show(toastText, context, duration: Toast.LENGTH_LONG, gravity:  Toast.BOTTOM);
+        Toast.show(toastText, context,
+            duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
         Navigator.of(context).pop();
       },
       color: colorVal,
@@ -60,8 +61,8 @@ class _MobileVerificationState extends State<MobileVerification> {
         width: 40,
         child: TextFormField(
           inputFormatters: [
-        LengthLimitingTextInputFormatter(1),
-      ],
+            LengthLimitingTextInputFormatter(1),
+          ],
           autofocus: true,
           decoration: InputDecoration(
             labelText: null,
@@ -98,7 +99,9 @@ class _MobileVerificationState extends State<MobileVerification> {
               )),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.white,
+          elevation: 5.0,
+          iconSize: 30,
+          backgroundColor: Colors.grey[100],
           showSelectedLabels: true,
           showUnselectedLabels: true,
           items: const <BottomNavigationBarItem>[
@@ -121,7 +124,7 @@ class _MobileVerificationState extends State<MobileVerification> {
         ),
         primary: false,
         body: SingleChildScrollView(
-          child: Column(
+            child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -158,7 +161,8 @@ class _MobileVerificationState extends State<MobileVerification> {
                   child: getButton('Submit', Colors.black87, 140, 'Verified'),
                 )),
             Center(
-              child: getButton('Resend Code ', Colors.blueGrey[500], 110, 'Verification Code sent'),
+              child: getButton('Resend Code ', Colors.blueGrey[500], 110,
+                  'Verification Code sent'),
             ),
           ],
         )));
