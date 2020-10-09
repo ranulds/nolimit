@@ -4,6 +4,7 @@ import 'package:nolimit/profile/my-account.dart';
 import 'package:nolimit/profile/change-password.dart';
 import 'package:nolimit/profile/mobile-verification.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:nolimit/shane/notifications.dart';
 import 'dart:io';
 
 import 'package:nolimit/wishlist/wishlist.dart';
@@ -188,14 +189,12 @@ class _MainProfileState extends State<MainProfile> {
           (Route<dynamic> route) => false);
     else if (index == 2)
       Navigator.of(context).push(MaterialPageRoute(builder: (_) => MainProfile()));
-      //Navigator.of(context).push(MaterialPageRoute(builder: (_) => RanulMap()));
-      //Navigator.of(context).push(MaterialPageRoute(builder: (_) => Brands()));
-
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        elevation: 5.0,
         backgroundColor: Colors.white,
         showSelectedLabels: true,
         showUnselectedLabels: true,
@@ -214,7 +213,7 @@ class _MainProfileState extends State<MainProfile> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.blue[900],
         onTap: _onItemTapped,
       ),
       primary: false,
@@ -329,7 +328,7 @@ class _MainProfileState extends State<MainProfile> {
             _buildCards('Mobile Verification', Icon(Icons.mobile_screen_share),
                 new MobileVerification()),
             _buildCards(
-                'Notifications', Icon(Icons.notifications), new MyAccount()),
+                'Notifications', Icon(Icons.notifications), new Notifications()),
             _buildCards('Logout', Icon(Icons.call_missed_outgoing), MyAccount()),
                 ]
               ),

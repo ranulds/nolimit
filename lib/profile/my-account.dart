@@ -22,6 +22,8 @@ class _MyAccountState extends State<MyAccount> {
   @override
   void dispose() {
     _emailtext.dispose();
+    _nametext.dispose();
+    _numberText.dispose();
     super.dispose();
   }
 
@@ -94,7 +96,7 @@ class _MyAccountState extends State<MyAccount> {
             ),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.black,
+          selectedItemColor: Colors.blue[900],
           onTap: _onItemTapped,
         ),
         primary: false,

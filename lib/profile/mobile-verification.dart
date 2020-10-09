@@ -4,6 +4,7 @@ import 'package:nolimit/gallery/gallery.dart';
 import 'package:nolimit/profile/main-profile.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 import 'package:toast/toast.dart';
+//import 'package:flutter/services.dart';
 
 class MobileVerification extends StatefulWidget {
   @override
@@ -58,6 +59,10 @@ class _MobileVerificationState extends State<MobileVerification> {
       child: SizedBox(
         width: 40,
         child: TextFormField(
+          inputFormatters: [
+        LengthLimitingTextInputFormatter(1),
+      ],
+          autofocus: true,
           decoration: InputDecoration(
             labelText: null,
           ),
@@ -111,7 +116,7 @@ class _MobileVerificationState extends State<MobileVerification> {
             ),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.black,
+          selectedItemColor: Colors.blue[900],
           onTap: _onItemTapped,
         ),
         primary: false,
