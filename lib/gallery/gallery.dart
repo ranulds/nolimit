@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nolimit/gallery/ladies_sub_categories.dart';
 import 'package:nolimit/map/map.dart';
+
+import 'package:nolimit/profile/main-profile.dart';
+
 import 'package:nolimit/shane/brands.dart';
 import 'package:nolimit/shane/notifications.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
@@ -26,7 +29,7 @@ class _GalleryState extends State<Gallery> {
           MaterialPageRoute(builder: (_) => Gallery()),
           (Route<dynamic> route) => false);
     else if (index == 2)
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => Brands()));
+      Navigator.of(context).push(MaterialPageRoute(builder: (_) => MainProfile()));
   }
 
   @override
