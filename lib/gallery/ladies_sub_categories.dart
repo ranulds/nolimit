@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nolimit/gallery/gallery.dart';
+import 'package:nolimit/gallery/handbags.dart';
 import 'package:nolimit/gallery/item.dart';
 import 'package:nolimit/gallery/ladies_category.dart';
 import 'package:nolimit/map/map.dart';
@@ -142,15 +143,23 @@ class _LadiesCategoryState extends State<LadiesSubCategory> {
                     children: <Widget>[
                       Imagewidget(
                         source: 'images/pexels-andriana-3317434 (1).jpg',
+                        title: 'Lace Midi Skirt',
+                        price: 'Rs 1890.00',
                       ),
                       Imagewidget(
                         source: 'images/pexels-daria-shevtsova-1391580 (1).jpg',
+                        title: 'Huf & Dee Long Skirt',
+                        price: 'Rs 1550.00',
                       ),
                       Imagewidget(
                         source: 'images/pexels-lucas-queiroz-1852382 (1).jpg',
+                        title: 'Pink Elephant Long Skirt',
+                        price: 'Rs 890.00',
                       ),
                       Imagewidget(
                         source: 'images/pexels-mikotoraw-4132651 (1).jpg',
+                        title: 'Salma Long Skirt',
+                        price: 'Rs 1690.00',
                       ),
                     ],
                   ),
@@ -170,8 +179,7 @@ class _LadiesCategoryState extends State<LadiesSubCategory> {
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: FlatButton(
                         onPressed: () => Navigator.of(context).push(
-                            MaterialPageRoute(
-                                builder: (_) => LadiesCategory())),
+                            MaterialPageRoute(builder: (_) => HandBags())),
                         child: Text('show all'),
                       ),
                     )
@@ -184,16 +192,24 @@ class _LadiesCategoryState extends State<LadiesSubCategory> {
                     scrollDirection: Axis.horizontal,
                     children: <Widget>[
                       Imagewidget(
-                        source: 'images/pexels-mikotoraw-4132651 (1).jpg',
+                        source: 'images/pexels-artem-beliaikin-2115431 (1).jpg',
+                        title: 'Ladies Casual Bag',
+                        price: 'Rs 690.00',
                       ),
                       Imagewidget(
-                        source: 'images/pexels-lucas-queiroz-1852382 (1).jpg',
+                        source: 'images/pexels-buenosia-carol-1204464 (1).jpg',
+                        title: 'Ladies Hand Bag',
+                        price: 'Rs 690.00',
                       ),
                       Imagewidget(
-                        source: 'images/pexels-daria-shevtsova-1391580 (1).jpg',
+                        source: 'images/pexels-godisable-jacob-2090784 (1).jpg',
+                        title: 'Ladies Casual Bag',
+                        price: 'Rs 3190.00',
                       ),
                       Imagewidget(
-                        source: 'images/pexels-andriana-3317434 (1).jpg',
+                        source: 'images/pexels-kaboompics-com-5670 (1).jpg',
+                        title: 'Ladies Bag',
+                        price: 'Rs 2150.00',
                       ),
                     ],
                   ),
@@ -227,16 +243,24 @@ class _LadiesCategoryState extends State<LadiesSubCategory> {
                     scrollDirection: Axis.horizontal,
                     children: <Widget>[
                       Imagewidget(
-                        source: 'images/pexels-andriana-3317434 (1).jpg',
-                      ),
-                      Imagewidget(
-                        source: 'images/pexels-daria-shevtsova-1391580 (1).jpg',
+                        source: 'images/pexels-mikotoraw-4132651 (1).jpg',
+                        title: 'Salma Long Skirt',
+                        price: 'Rs 1690.00',
                       ),
                       Imagewidget(
                         source: 'images/pexels-lucas-queiroz-1852382 (1).jpg',
+                        title: 'Pink Elephant Long Skirt',
+                        price: 'Rs 890.00',
                       ),
                       Imagewidget(
-                        source: 'images/pexels-mikotoraw-4132651 (1).jpg',
+                        source: 'images/pexels-daria-shevtsova-1391580 (1).jpg',
+                        title: 'Huf & Dee Long Skirt',
+                        price: 'Rs 1550.00',
+                      ),
+                      Imagewidget(
+                        source: 'images/pexels-andriana-3317434 (1).jpg',
+                        title: 'Lace Midi Skirt',
+                        price: 'Rs 1890.00',
                       ),
                     ],
                   ),
@@ -251,9 +275,10 @@ class _LadiesCategoryState extends State<LadiesSubCategory> {
 }
 
 class Imagewidget extends StatefulWidget {
-  const Imagewidget({Key key, this.source}) : super(key: key);
+  const Imagewidget({Key key, this.source, this.title, this.price})
+      : super(key: key);
 
-  final String source;
+  final String source, title, price;
 
   @override
   _ImagewidgetState createState() => _ImagewidgetState();
@@ -317,11 +342,11 @@ class _ImagewidgetState extends State<Imagewidget> {
               height: 10,
             ),
             Text(
-              'Lace  Midi Skirt',
+              widget.title,
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             Text(
-              'Rs 1750',
+              widget.price,
               style: TextStyle(color: Colors.grey),
             ),
           ],
