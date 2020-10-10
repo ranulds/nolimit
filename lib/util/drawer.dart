@@ -18,10 +18,10 @@ class AppDrawer extends StatelessWidget {
               color: Colors.black,
             ),
             accountName: Text(
-              ' Hello!! Andrew Peries',
+              ' Hello!! Miranda Lopez',
               style: TextStyle(fontSize: 20.0),
             ),
-            accountEmail: Text('andrewperies@nolimit.lk'),
+            accountEmail: Text('miranda@gmail.com'),
             currentAccountPicture: CircleAvatar(
               backgroundImage: NetworkImage(
                   'https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/female_woman_avatar_portrait_1-512.png'),
@@ -46,9 +46,9 @@ class AppDrawer extends StatelessWidget {
             title: Text(
               'Gallery',
               style: TextStyle(
-                  fontFamily: "Tomorrow",
-                  fontSize: 25.0,
-                  color: Colors.indigo[900]),
+                fontFamily: "Tomorrow",
+                fontSize: 25.0,
+              ),
             ),
             onTap: () {
               Navigator.of(context).pushAndRemoveUntil(
