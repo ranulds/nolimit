@@ -200,8 +200,8 @@ class _MainProfileState extends State<MainProfile> {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         elevation: 5.0,
-        iconSize: 30,
-        backgroundColor: Colors.grey[100],
+       // iconSize: 30,
+        backgroundColor: Colors.white,//Colors.grey[100],
         showSelectedLabels: true,
         showUnselectedLabels: true,
         items: const <BottomNavigationBarItem>[
