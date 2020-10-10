@@ -9,12 +9,12 @@ import 'package:nolimit/map/map.dart';
 import 'package:nolimit/shane/notifications.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 
-class GentsSubCategory extends StatefulWidget {
+class KidsSubCategory extends StatefulWidget {
   @override
   _LadiesCategoryState createState() => _LadiesCategoryState();
 }
 
-class _LadiesCategoryState extends State<GentsSubCategory> {
+class _LadiesCategoryState extends State<KidsSubCategory> {
   int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
@@ -71,7 +71,7 @@ class _LadiesCategoryState extends State<GentsSubCategory> {
         primary: false,
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
-        title: Text('Gents',
+        title: Text('Kids',
             style: TextStyle(
                 color: Colors.black,
                 fontSize: 25,

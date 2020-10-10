@@ -111,42 +111,42 @@ class _LadiesCategoryState extends State<GentsCategory> {
                 children: <Widget>[
                   Imagewidget(
                     source: 'images/pexels-andrea-piacquadio-716411 (1).jpg',
-                    title: 'Lace Midi Skirt',
+                    title: 'Bamboo Linen Shirt',
                     price: 'Rs 1890.00',
                   ),
                   Imagewidget(
                     source: 'images/pexels-andrea-piacquadio-941693 (1).jpg',
-                    title: 'Huf & Dee Long Skirt',
+                    title: 'Deedat Casual Shirt',
                     price: 'Rs 1550.00',
                   ),
                   Imagewidget(
                     source: 'images/pexels-chloe-kala-1043474 (1).jpg',
-                    title: 'Pink Elephant Long Skirt',
+                    title: 'Comfy Linen Shirt',
                     price: 'Rs 890.00',
                   ),
                   Imagewidget(
                     source: 'images/pexels-emre-keshavarz-3526923 (1).jpg',
-                    title: 'Salma Long Skirt',
+                    title: 'Jack & Smith Casual Shirt',
                     price: 'Rs 1690.00',
                   ),
                   Imagewidget(
                     source: 'images/pexels-martin-péchy-594610 (1).jpg',
-                    title: 'Salma Long Skirt',
+                    title: 'MBRK Linen Shirt',
                     price: 'Rs 1790.00',
                   ),
                   Imagewidget(
                     source: 'images/pexels-raul-reynoso-1018911 (1).jpg',
-                    title: 'Ladies Formal Skirt',
+                    title: 'PORTOFINO Casual Shirt',
                     price: 'Rs 1290.00',
                   ),
                   Imagewidget(
                     source: 'images/pexels-sindre-strøm-1040945 (1).jpg',
-                    title: 'Lace Midi Skirt',
+                    title: 'PORTOFINO Casual Shirt',
                     price: 'Rs 1890.00',
                   ),
                   Imagewidget(
                     source: 'images/pexels-spencer-selover-775358 (1).jpg',
-                    title: 'Huf & Dee Long Skirt',
+                    title: 'Bamboo Linen Shirt',
                     price: 'Rs 1550.00',
                   ),
                 ],

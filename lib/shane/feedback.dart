@@ -152,6 +152,8 @@ class _FeedBackState extends BaseState<FeedBack> {
                 child: Form(
                   key: _formKey,
                   child: TextFormField(
+                    decoration:
+                        InputDecoration(errorStyle: TextStyle(fontSize: 16)),
                     keyboardType: TextInputType.multiline,
                     maxLines: 8,
                     maxLength: 1000,
@@ -190,7 +192,7 @@ class _FeedBackState extends BaseState<FeedBack> {
               // ),
               // Spacer(),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 80),
                 child: RaisedButton(
                   child: Text(
                     'Send',
