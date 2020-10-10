@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_simple_rating_bar/flutter_simple_rating_bar.dart';
+import 'package:nolimit/util/base.dart';
 import 'package:nolimit/gallery/gallery.dart';
 import 'package:nolimit/shane/brands.dart';
 import 'package:nolimit/shane/notifications.dart';
@@ -10,8 +12,9 @@ class FeedBack extends StatefulWidget {
   _FeedBackState createState() => _FeedBackState();
 }
 
-class _FeedBackState extends State<FeedBack> {
+class _FeedBackState extends BaseState<FeedBack> {
   int _selectedIndex = 1;
+  final _formKey = GlobalKey<FormState>();
 
   void _onItemTapped(int index) {
     setState(() {
@@ -134,7 +137,7 @@ class _FeedBackState extends State<FeedBack> {
                       allowHalfRating: true,
                       onRatingCallback:
                           (double value, ValueNotifier<bool> isIndicator) {
-                        //change the isIndicator from false  to true ,the       RatingBar cannot support touch event;
+                        //change the isIndicator from false  to true ,the RatingBar cannot support touch event;
                         isIndicator.value = false;
                       },
                       color: Colors.amber,
@@ -153,10 +156,19 @@ class _FeedBackState extends State<FeedBack> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: TextFormField(
-                      keyboardType: TextInputType.multiline,
-                      maxLines: 8,
-                      maxLength: 1000,
+                    child: Form(
+                      key: _formKey,
+                      child: TextFormField(
+                        keyboardType: TextInputType.multiline,
+                        maxLines: 8,
+                        maxLength: 1000,
+                        validator: (value) {
+                          if (value.isEmpty) {
+                            return 'Please enter your feedback';
+                          }
+                          return null;
+                        },
+                      ),
                     ),
                   ),
                   Center(
@@ -175,7 +187,12 @@ class _FeedBackState extends State<FeedBack> {
                           Text('Send'),
                         ],
                       ),
-                      onPressed: () => showAlert(context),
+                      onPressed: () {
+                        FocusScope.of(context).unfocus();
+                        if (_formKey.currentState.validate()) {
+                          showAlert(context);
+                        }
+                      },
                     ),
                   ),
                   SizedBox(
