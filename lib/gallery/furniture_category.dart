@@ -5,12 +5,12 @@ import 'package:nolimit/map/map.dart';
 import 'package:nolimit/shane/notifications.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 
-class WatchCategory extends StatefulWidget {
+class FurnitureCategory extends StatefulWidget {
   @override
   _LadiesCategoryState createState() => _LadiesCategoryState();
 }
 
-class _LadiesCategoryState extends State<WatchCategory> {
+class _LadiesCategoryState extends State<FurnitureCategory> {
   int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
@@ -45,7 +45,7 @@ class _LadiesCategoryState extends State<WatchCategory> {
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: Text('Watches',
+        title: Text('Furniture',
             style: TextStyle(
               color: Colors.black,
             )),
@@ -110,18 +110,23 @@ class _LadiesCategoryState extends State<WatchCategory> {
                     (MediaQuery.of(context).size.height / 1.7),
                 children: <Widget>[
                   Imagewidget(
-                    source: 'images/pexels-pixabay-277390 (1).jpg',
-                    title: 'Watch',
+                    source: 'images/pexels-evg-culture-1148955 (1).jpg',
+                    title: 'Bamboo Chair',
                     price: 'Rs 1890.00',
                   ),
                   Imagewidget(
-                    source: 'images/pexels-joey-nguyễn-2113994 (1).jpg',
-                    title: 'Watch',
+                    source: 'images/pexels-martin-péchy-1866149 (1).jpg',
+                    title: 'Deedat Sofa',
                     price: 'Rs 1550.00',
                   ),
                   Imagewidget(
-                    source: 'images/pexels-jatin-anand-125779 (1).jpg',
-                    title: 'Jack & Smith Casual Watch',
+                    source: 'images/pexels-kaboompics-com-5861 (1).jpg',
+                    title: 'Comfy Linen Bed',
+                    price: 'Rs 890.00',
+                  ),
+                  Imagewidget(
+                    source: 'images/pexels-pixabay-462235 (1).jpg',
+                    title: 'Jack & Smith Table',
                     price: 'Rs 1690.00',
                   ),
                 ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nolimit/gallery/accesseories_sub_categories.dart';
 import 'package:nolimit/gallery/gents_sub_categories.dart';
+import 'package:nolimit/gallery/homeware_sub_categgories.dart';
 import 'package:nolimit/gallery/kids_sub_categories.dart';
 import 'package:nolimit/gallery/ladies_sub_categories.dart';
 import 'package:nolimit/profile/main-profile.dart';
@@ -223,8 +224,8 @@ class _GalleryState extends State<Gallery> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => LadiesSubCategory())),
+                    onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                        builder: (_) => HomewareSubCategory())),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       child: Stack(

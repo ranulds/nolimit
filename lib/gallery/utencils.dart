@@ -5,12 +5,12 @@ import 'package:nolimit/map/map.dart';
 import 'package:nolimit/shane/notifications.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 
-class WatchCategory extends StatefulWidget {
+class UtencilCategory extends StatefulWidget {
   @override
   _LadiesCategoryState createState() => _LadiesCategoryState();
 }
 
-class _LadiesCategoryState extends State<WatchCategory> {
+class _LadiesCategoryState extends State<UtencilCategory> {
   int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
@@ -45,7 +45,7 @@ class _LadiesCategoryState extends State<WatchCategory> {
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: Text('Watches',
+        title: Text('Furniture',
             style: TextStyle(
               color: Colors.black,
             )),
@@ -110,19 +110,14 @@ class _LadiesCategoryState extends State<WatchCategory> {
                     (MediaQuery.of(context).size.height / 1.7),
                 children: <Widget>[
                   Imagewidget(
-                    source: 'images/pexels-pixabay-277390 (1).jpg',
-                    title: 'Watch',
+                    source: 'images/pexels-taryn-elliott-4440172 (1).jpg',
+                    title: 'Kitchen Ware',
                     price: 'Rs 1890.00',
                   ),
                   Imagewidget(
-                    source: 'images/pexels-joey-nguyễn-2113994 (1).jpg',
-                    title: 'Watch',
+                    source: 'images/pexels-mike-211760 (1).jpg',
+                    title: 'Kitchen Utencils',
                     price: 'Rs 1550.00',
-                  ),
-                  Imagewidget(
-                    source: 'images/pexels-jatin-anand-125779 (1).jpg',
-                    title: 'Jack & Smith Casual Watch',
-                    price: 'Rs 1690.00',
                   ),
                 ],
               ),
