@@ -7,6 +7,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:nolimit/shane/notifications.dart';
 import 'dart:io';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:nolimit/signup/signin.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 
 class MainProfile extends StatefulWidget {
@@ -232,7 +233,7 @@ class _MainProfileState extends State<MainProfile> {
                 Container(
                     height: 250,
                     child: Image.asset(
-                      'images/profile/propic.png',
+                      'images/profile/profilepric.jpg',
                       fit: BoxFit.fill,
                     )),
 
@@ -334,7 +335,7 @@ class _MainProfileState extends State<MainProfile> {
                 _buildCards('Notifications', Icon(Icons.notifications),
                     new Notifications()),
                 _buildCards(
-                    'Logout', Icon(FlutterIcons.log_out_ent), MyAccount()),
+                    'Logout', Icon(FlutterIcons.log_out_ent), SigninPage()),
               ]),
             ),
             Padding(
