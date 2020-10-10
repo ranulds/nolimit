@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nolimit/gallery/gallery.dart';
 import 'package:nolimit/gallery/gents_category.dart';
-import 'package:nolimit/gallery/handbags.dart';
 import 'package:nolimit/gallery/item.dart';
-import 'package:nolimit/gallery/ladies_category.dart';
+import 'package:nolimit/gallery/kids_category.dart';
 import 'package:nolimit/gallery/shoes.dart';
 import 'package:nolimit/map/map.dart';
 import 'package:nolimit/shane/notifications.dart';
@@ -96,7 +95,7 @@ class _LadiesCategoryState extends State<KidsSubCategory> {
                 Stack(
                   children: [
                     Image.asset(
-                      'images/pexels-raul-reynoso-1018911 (1).jpg',
+                      'images/pexels-tuấn-kiệt-jr-1765423 (1).jpg',
                       height: MediaQuery.of(context).size.height * 0.4,
                       width: MediaQuery.of(context).size.width,
                       fit: BoxFit.fill,
@@ -121,7 +120,7 @@ class _LadiesCategoryState extends State<KidsSubCategory> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
-                        'Formal Shirts',
+                        'Kids Dresses',
                         style: TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold),
                       ),
@@ -130,7 +129,7 @@ class _LadiesCategoryState extends State<KidsSubCategory> {
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: FlatButton(
                         onPressed: () => Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => GentsCategory())),
+                            MaterialPageRoute(builder: (_) => KidsCategory())),
                         child: Text('show all'),
                       ),
                     )
@@ -143,23 +142,25 @@ class _LadiesCategoryState extends State<KidsSubCategory> {
                     scrollDirection: Axis.horizontal,
                     children: <Widget>[
                       Imagewidget(
-                        source:
-                            'images/pexels-andrea-piacquadio-716411 (1).jpg',
+                        source: 'images/pexels-philip-boakye-2995309 (1).jpg',
                         title: 'Bamboo Linen Shirt',
                         price: 'Rs 1890.00',
                       ),
                       Imagewidget(
-                        source: 'images/pexels-chloe-kala-1043474 (1).jpg',
+                        source:
+                            'images/pexels-thiszun-(follow-me-on-ig-fb)-1139613 (1).jpg',
                         title: 'Deedat Casual Shirt',
                         price: 'Rs 1550.00',
                       ),
                       Imagewidget(
-                        source: 'images/pexels-emre-keshavarz-3526923 (1).jpg',
+                        source:
+                            'images/pexels-victoria-borodinova-1094084 (1).jpg',
                         title: 'Comfy Linen Shirt',
                         price: 'Rs 890.00',
                       ),
                       Imagewidget(
-                        source: 'images/pexels-martin-péchy-594610 (1).jpg',
+                        source:
+                            'images/pexels-victoria-borodinova-1619697 (1).jpg',
                         title: 'Jack & Smith Casual Shirt',
                         price: 'Rs 1690.00',
                       ),
@@ -172,7 +173,7 @@ class _LadiesCategoryState extends State<KidsSubCategory> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
-                        'Shoes',
+                        'Kids Dresses',
                         style: TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold),
                       ),
@@ -181,57 +182,7 @@ class _LadiesCategoryState extends State<KidsSubCategory> {
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: FlatButton(
                         onPressed: () => Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => ShoesCategory())),
-                        child: Text('show all'),
-                      ),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 200,
-                  child: ListView(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    scrollDirection: Axis.horizontal,
-                    children: <Widget>[
-                      Imagewidget(
-                        source: 'images/pexels-aidan-jarrett-718981 (1).jpg',
-                        title: 'Catepillar',
-                        price: 'Rs 1690.00',
-                      ),
-                      Imagewidget(
-                        source: 'images/pexels-arthur-ogleznev-1102777 (1).jpg',
-                        title: 'Nike',
-                        price: 'Rs 690.00',
-                      ),
-                      Imagewidget(
-                        source: 'images/pexels-melvin-buezo-2529148 (1).jpg',
-                        title: 'Nike',
-                        price: 'Rs 3190.00',
-                      ),
-                      Imagewidget(
-                        source: 'images/pexels-mnz-1598505 (1).jpg',
-                        title: 'Nike',
-                        price: 'Rs 2150.00',
-                      ),
-                    ],
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(
-                        'T-Shirts',
-                        style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: FlatButton(
-                        onPressed: () => Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => GentsCategory())),
+                            MaterialPageRoute(builder: (_) => KidsCategory())),
                         child: Text('show all'),
                       ),
                     )
@@ -245,22 +196,78 @@ class _LadiesCategoryState extends State<KidsSubCategory> {
                     children: <Widget>[
                       Imagewidget(
                         source:
-                            'images/pexels-andrea-piacquadio-941693 (1).jpg',
+                            'images/pexels-victoria-borodinova-1619705 (1).jpg',
+                        title: 'MBRK Linen Shirt',
+                        price: 'Rs 1790.00',
+                      ),
+                      Imagewidget(
+                        source:
+                            'images/pexels-victoria-borodinova-1619772 (1).jpg',
+                        title: 'PORTOFINO Casual Shirt',
+                        price: 'Rs 1290.00',
+                      ),
+                      Imagewidget(
+                        source:
+                            'images/pexels-victoria-borodinova-1620815 (1).jpg',
+                        title: 'PORTOFINO Casual Shirt',
+                        price: 'Rs 1890.00',
+                      ),
+                      Imagewidget(
+                        source:
+                            'images/pexels-victoria-borodinova-1620826 (1).jpg',
+                        title: 'Bamboo Linen Shirt',
+                        price: 'Rs 1550.00',
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Text(
+                        'Kids Dresses',
+                        style: TextStyle(
+                            fontSize: 25, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: FlatButton(
+                        onPressed: () => Navigator.of(context).push(
+                            MaterialPageRoute(builder: (_) => KidsCategory())),
+                        child: Text('show all'),
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 200,
+                  child: ListView(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    scrollDirection: Axis.horizontal,
+                    children: <Widget>[
+                      Imagewidget(
+                        source:
+                            'images/pexels-victoria-borodinova-1650281 (1).jpg',
                         title: 'MBRK Linen Shirt',
                         price: 'Rs 1690.00',
                       ),
                       Imagewidget(
-                        source: 'images/pexels-spencer-selover-775358 (1).jpg',
+                        source:
+                            'images/pexels-victoria-borodinova-1651888 (1).jpg',
                         title: 'PORTOFINO Casual Shirt',
                         price: 'Rs 890.00',
                       ),
                       Imagewidget(
-                        source: 'images/pexels-sindre-strøm-1040945 (1).jpg',
+                        source: 'images/pexels-philip-boakye-2995309 (1).jpg',
                         title: 'PORTOFINO Casual Shirt',
                         price: 'Rs 1550.00',
                       ),
                       Imagewidget(
-                        source: 'images/pexels-raul-reynoso-1018911 (1).jpg',
+                        source:
+                            'images/pexels-thiszun-(follow-me-on-ig-fb)-1139613 (1).jpg',
                         title: 'Bamboo Linen Shirt',
                         price: 'Rs 1890.00',
                       ),
