@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nolimit/gallery/ladies_sub_categories.dart';
-import 'package:nolimit/home/carousel.dart';
-import 'package:nolimit/map/map.dart';
-import 'package:nolimit/shane/feedback.dart';
-import 'package:nolimit/signup/signin.dart';
-import 'package:nolimit/signup/signup.dart';
-
 import 'package:nolimit/profile/main-profile.dart';
-
-import 'package:nolimit/shane/brands.dart';
 import 'package:nolimit/shane/notifications.dart';
 import 'package:nolimit/util/drawer.dart';
 import 'package:nolimit/wishlist/wishlist.dart';

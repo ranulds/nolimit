@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nolimit/gallery/gallery.dart';
 import 'package:nolimit/gallery/item.dart';
+import 'package:nolimit/profile/main-profile.dart';
 import 'package:nolimit/shane/notifications.dart';
+import 'package:nolimit/util/drawer.dart';
 
 class WishList extends StatefulWidget {
   @override
@@ -23,12 +25,16 @@ class _WishListState extends State<WishList> {
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(builder: (context) => Gallery()),
           (Route<dynamic> route) => false);
+    else if (index == 2)
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => MainProfile()),
+          (Route<dynamic> route) => false);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: AppDrawer(),
       appBar: AppBar(
         primary: false,
         // elevation: 0,

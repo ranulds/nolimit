@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:nolimit/gallery/gallery.dart';
-import 'package:nolimit/gallery/ladies_sub_categories.dart';
 import 'package:nolimit/map/map.dart';
 import 'package:nolimit/shane/brand_detail.dart';
-import 'package:nolimit/shane/feedback.dart';
+import 'package:nolimit/shane/lacoste_detail.dart';
+import 'package:nolimit/shane/nike_detail.dart';
 import 'package:nolimit/shane/notifications.dart';
+import 'package:nolimit/shane/puma_detail.dart';
+import 'package:nolimit/util/drawer.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 
 class Brands extends StatefulWidget {
@@ -20,7 +22,9 @@ class _GalleryState extends State<Brands> {
       _selectedIndex = index;
     });
     if (index == 0)
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => FeedBack()));
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (_) => WishList()),
+          (Route<dynamic> route) => false);
     else if (index == 1)
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(builder: (_) => Gallery()),
@@ -33,7 +37,7 @@ class _GalleryState extends State<Brands> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: AppDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         showSelectedLabels: true,
@@ -81,6 +85,9 @@ class _GalleryState extends State<Brands> {
             Expanded(
               child: ListView(
                 children: [
+                  SizedBox(
+                    height: 20,
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(left: 20.0),
                     child: Text(
@@ -125,7 +132,7 @@ class _GalleryState extends State<Brands> {
                   ),
                   GestureDetector(
                     onTap: () => Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (_) => BrandDetail())),
+                        .push(MaterialPageRoute(builder: (_) => PumaDetail())),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       child: Stack(
@@ -155,8 +162,8 @@ class _GalleryState extends State<Brands> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () => Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (_) => BrandDetail())),
+                    onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => LacosteDetail())),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       child: Stack(
@@ -187,7 +194,7 @@ class _GalleryState extends State<Brands> {
                   ),
                   GestureDetector(
                     onTap: () => Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (_) => BrandDetail())),
+                        .push(MaterialPageRoute(builder: (_) => NikeDetail())),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       child: Stack(

@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nolimit/gallery/gallery.dart';
-import 'package:nolimit/map/map.dart';
-import 'package:nolimit/wishlist/wishlist.dart';
 
 class Notifications extends StatefulWidget {
   @override
@@ -9,51 +6,51 @@ class Notifications extends StatefulWidget {
 }
 
 class _NotificationsState extends State<Notifications> {
-  int _selectedIndex = 0;
+  // int _selectedIndex = 0;
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-    if (index == 0)
-      Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (_) => WishList()),
-          (Route<dynamic> route) => false);
-    else if (index == 1)
-      Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (_) => Gallery()),
-          (Route<dynamic> route) => false);
-    else if (index == 2)
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: (_) => GoogleCustomMap()));
-  }
+  // void _onItemTapped(int index) {
+  //   setState(() {
+  //     _selectedIndex = index;
+  //   });
+  //   if (index == 0)
+  //     Navigator.of(context).pushAndRemoveUntil(
+  //         MaterialPageRoute(builder: (_) => WishList()),
+  //         (Route<dynamic> route) => false);
+  //   else if (index == 1)
+  //     Navigator.of(context).pushAndRemoveUntil(
+  //         MaterialPageRoute(builder: (_) => Gallery()),
+  //         (Route<dynamic> route) => false);
+  //   else if (index == 2)
+  //     Navigator.of(context)
+  //         .push(MaterialPageRoute(builder: (_) => GoogleCustomMap()));
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
-        showSelectedLabels: true,
-        showUnselectedLabels: true,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            title: Text('Wishlist'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_basket),
-            title: Text('Gallery'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            title: Text('Profile'),
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black54,
-        onTap: _onItemTapped,
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   backgroundColor: Colors.white,
+      //   showSelectedLabels: true,
+      //   showUnselectedLabels: true,
+      //   items: const <BottomNavigationBarItem>[
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.favorite),
+      //       title: Text('Wishlist'),
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.shopping_basket),
+      //       title: Text('Gallery'),
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.account_circle),
+      //       title: Text('Profile'),
+      //     ),
+      //   ],
+      //   currentIndex: _selectedIndex,
+      //   selectedItemColor: Colors.black54,
+      //   onTap: _onItemTapped,
+      // ),
       primary: false,
       appBar: AppBar(
         leading: IconButton(
