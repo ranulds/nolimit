@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nolimit/gallery/gallery.dart';
 import 'package:nolimit/map/map.dart';
+import 'package:nolimit/profile/main-profile.dart';
 import 'package:nolimit/shane/brand_detail.dart';
 import 'package:nolimit/shane/lacoste_detail.dart';
 import 'package:nolimit/shane/nike_detail.dart';
@@ -31,7 +32,7 @@ class _GalleryState extends State<Brands> {
           (Route<dynamic> route) => false);
     else if (index == 2)
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (_) => GoogleCustomMap()));
+          .push(MaterialPageRoute(builder: (_) => MainProfile()));
   }
 
   @override

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_simple_rating_bar/flutter_simple_rating_bar.dart';
 import 'package:nolimit/gallery/gallery.dart';
 import 'package:nolimit/map/map.dart';
+import 'package:nolimit/profile/main-profile.dart';
 import 'package:nolimit/shane/notifications.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 
@@ -27,7 +28,7 @@ class _BrandDetailState extends State<BrandDetail> {
           (Route<dynamic> route) => false);
     else if (index == 2)
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (_) => GoogleCustomMap()));
+          .push(MaterialPageRoute(builder: (_) => MainProfile()));
   }
 
   @override

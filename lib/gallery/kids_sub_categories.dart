@@ -5,6 +5,7 @@ import 'package:nolimit/gallery/item.dart';
 import 'package:nolimit/gallery/kids_category.dart';
 import 'package:nolimit/gallery/shoes.dart';
 import 'package:nolimit/map/map.dart';
+import 'package:nolimit/profile/main-profile.dart';
 import 'package:nolimit/shane/notifications.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 
@@ -30,7 +31,7 @@ class _LadiesCategoryState extends State<KidsSubCategory> {
           (Route<dynamic> route) => false);
     else if (index == 2)
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (_) => GoogleCustomMap()));
+          .push(MaterialPageRoute(builder: (_) => MainProfile()));
   }
 
   @override
