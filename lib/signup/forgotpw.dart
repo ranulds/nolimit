@@ -1,14 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:nolimit/signup/signin.dart';
+import 'package:nolimit/util/base.dart';
 
 class fgPassword extends StatefulWidget {
   @override
   _forgotPassword createState() => _forgotPassword();
 }
 
-class _forgotPassword extends State<fgPassword> {
+class _forgotPassword extends BaseState<fgPassword> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(
+            Icons.chevron_left,
+            size: 35,
+          ),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+        primary: false,
+        iconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: Colors.white,
+        title: Text('forgot password',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 23,
+              fontWeight: FontWeight.bold,
+            )),
+      ),
       resizeToAvoidBottomPadding: false,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +75,11 @@ class _forgotPassword extends State<fgPassword> {
               color: Colors.black,
               elevation: 7.0,
               child: GestureDetector(
-                onTap: () => {},
+                onTap: () {
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (_) => SigninPage()),
+                      (Route<dynamic> route) => false);
+                },
                 child: Center(
                   child: Text(
                     'Confirm Email',

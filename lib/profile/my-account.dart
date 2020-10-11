@@ -4,13 +4,14 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:nolimit/gallery/gallery.dart';
 import 'package:nolimit/profile/main-profile.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
+import 'package:nolimit/util/base.dart';
 
 class MyAccount extends StatefulWidget {
   @override
   _MyAccountState createState() => _MyAccountState();
 }
 
-class _MyAccountState extends State<MyAccount> {
+class _MyAccountState extends BaseState<MyAccount> {
   DateTime selectedDate = DateTime.now();
   //final DateFormat serverFormater = DateFormat('dd-MM-yyyy'); Use this class to format date if needed
   int _selectedIndex = 2;
@@ -84,7 +85,7 @@ class _MyAccountState extends State<MyAccount> {
         bottomNavigationBar: BottomNavigationBar(
           elevation: 5.0,
         iconSize: 30,
-        backgroundColor: Colors.grey[100],
+        backgroundColor: Colors.white,//Colors.grey[100],
           showSelectedLabels: true,
           showUnselectedLabels: true,
           items: const <BottomNavigationBarItem>[
@@ -174,7 +175,7 @@ class _MyAccountState extends State<MyAccount> {
                         labelStyle: TextStyle(fontSize: 18),
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                           labelText: 'Birth Date ',
-                          suffixIcon: Icon(Icons.calendar_today, size: 26, color: Colors.blue,)),
+                          suffixIcon: Icon(Icons.calendar_today, size: 26, color: Colors.blue[900],)),
                       onTap: () {
                         // Below line stops keyboard from appearing
                         FocusScope.of(context).requestFocus(new FocusNode());

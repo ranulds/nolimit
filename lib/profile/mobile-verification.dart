@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nolimit/gallery/gallery.dart';
 import 'package:nolimit/profile/main-profile.dart';
+import 'package:nolimit/util/base.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 import 'package:toast/toast.dart';
 //import 'package:flutter/services.dart';
@@ -11,7 +12,7 @@ class MobileVerification extends StatefulWidget {
   _MobileVerificationState createState() => _MobileVerificationState();
 }
 
-class _MobileVerificationState extends State<MobileVerification> {
+class _MobileVerificationState extends BaseState<MobileVerification> {
   int _selectedIndex = 2;
 
   Widget getButton(String title, colorVal, double hval, String toastText) {
@@ -100,8 +101,8 @@ class _MobileVerificationState extends State<MobileVerification> {
         ),
         bottomNavigationBar: BottomNavigationBar(
           elevation: 5.0,
-          iconSize: 30,
-          backgroundColor: Colors.grey[100],
+         // iconSize: 30,
+          backgroundColor: Colors.white,//Colors.grey[100],
           showSelectedLabels: true,
           showUnselectedLabels: true,
           items: const <BottomNavigationBarItem>[

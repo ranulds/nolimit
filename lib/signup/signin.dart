@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nolimit/home/carousel.dart';
 import 'package:nolimit/signup/forgotpw.dart';
+import 'package:nolimit/util/base.dart';
 import 'signup.dart';
 
 class SigninPage extends StatefulWidget {
@@ -8,7 +9,7 @@ class SigninPage extends StatefulWidget {
   _SigninPageState createState() => _SigninPageState();
 }
 
-class _SigninPageState extends State<SigninPage> {
+class _SigninPageState extends BaseState<SigninPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -20,14 +21,23 @@ class _SigninPageState extends State<SigninPage> {
               child: Stack(
                 children: <Widget>[
                   Container(
-                    padding: EdgeInsets.fromLTRB(15.0, 100.0, 0.0, 0.0),
-                    child: Text('Login',
-                        style: TextStyle(
-                            fontSize: 80.0, fontWeight: FontWeight.bold)),
+                    //padding: EdgeInsets.fromLTRB(90.0, 0.0, 0.0, 0.0),
+                    child: Image.asset(
+                      'assets/6.jpg',
+                      width: 500,
+                      height: 300,
+                      alignment: Alignment.topLeft,
+                    ),
                   ),
+                  // Container(
+                  //   padding: EdgeInsets.fromLTRB(15.0, 170.0, 0.0, 0.0),
+                  //   child: Text('Login',
+                  //       style: TextStyle(
+                  //           fontSize: 80.0, fontWeight: FontWeight.bold)),
+                  // ),
                   Container(
-                    padding: EdgeInsets.fromLTRB(16.0, 175.0, 0.0, 0.0),
-                    child: Text('Here!!!',
+                    padding: EdgeInsets.fromLTRB(16.0, 220.0, 0.0, 0.0),
+                    child: Text('Login!!',
                         style: TextStyle(
                             fontSize: 80.0, fontWeight: FontWeight.bold)),
                   ),
@@ -35,7 +45,7 @@ class _SigninPageState extends State<SigninPage> {
               ),
             ),
             Container(
-                padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 20.0),
+                padding: EdgeInsets.only(top: 0.0, left: 10.0, right: 20.0),
                 child: Column(
                   children: <Widget>[
                     TextField(
@@ -125,10 +135,9 @@ class _SigninPageState extends State<SigninPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Center(
-                              child:
-                                  ImageIcon(AssetImage('images/facebook.png')),
-                            ),
+                            // Center(
+                            //   child: ImageIcon(AssetImage('')),
+                            // ),
                             SizedBox(width: 10.0),
                             Center(
                               child: Text('Log in with facebook',
