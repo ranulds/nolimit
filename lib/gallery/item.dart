@@ -1,6 +1,8 @@
 import 'package:floating_pullup_card/floating_layout.dart';
 import 'package:floating_pullup_card/floating_pullup_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_simple_rating_bar/flutter_simple_rating_bar.dart';
+import 'package:nolimit/shane/notifications.dart';
 import 'package:pinch_zoom_image_last/pinch_zoom_image_last.dart';
 
 class Item extends StatefulWidget {
@@ -36,7 +38,8 @@ class _ItemState extends State<Item> {
               Icons.notifications,
               size: 30,
             ),
-            onPressed: () {},
+            onPressed: () => Navigator.of(context)
+                .push(MaterialPageRoute(builder: (_) => Notifications())),
           )
         ],
       ),
@@ -44,13 +47,16 @@ class _ItemState extends State<Item> {
       extendBodyBehindAppBar: true,
       resizeToAvoidBottomInset: false,
       body: FloatingPullUpCardLayout(
+        autoPadding: false,
+        borderRadius: BorderRadius.only(
+            topRight: Radius.circular(30), topLeft: Radius.circular(30)),
         cardColor: Colors.white70,
         onOutsideTap: () => FloatingPullUpState.collapsed,
         uncollpsedStateOffset: (_) => MediaQuery.of(context).size.height * 0.75,
         height: MediaQuery.of(context).size.height * 0.25,
         child: PinchZoomImage(
           image: Image.asset(
-            'images/placeimg_640_480_people (1).jpg',
+            'images/pexels-quang-anh-ha-nguyen-884979 (1).jpg',
             height: double.infinity,
             fit: BoxFit.cover,
           ),
@@ -61,22 +67,44 @@ class _ItemState extends State<Item> {
               height: 15,
             ),
             Text(
-              'Lace Midi Skirt',
+              'Skinny Top',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
             ),
             SizedBox(
               height: 10,
             ),
             Text(
-              'Rs 1890',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+              'Rs 590.00',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             SizedBox(
               height: 10,
             ),
             Text(
-              'Soft Pink',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+              'Cream White',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            RatingBar(
+              rating: 4,
+              icon: Icon(
+                Icons.star,
+                size: 24,
+                color: Colors.grey,
+              ),
+              starCount: 4,
+              spacing: 5.0,
+              size: 20,
+              isIndicator: true,
+              allowHalfRating: true,
+              onRatingCallback:
+                  (double value, ValueNotifier<bool> isIndicator) {
+                //change the isIndicator from false  to true ,the       RatingBar cannot support touch event;
+                isIndicator.value = true;
+              },
+              color: Colors.black,
             ),
           ],
         ),
