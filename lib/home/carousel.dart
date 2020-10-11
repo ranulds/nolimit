@@ -37,7 +37,7 @@ class _carouselPage extends State<CarouselPage> {
       drawer: AppDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         showSelectedLabels: true,
         showUnselectedLabels: true,
         items: const <BottomNavigationBarItem>[
@@ -59,7 +59,7 @@ class _carouselPage extends State<CarouselPage> {
         onTap: _onItemTapped,
       ),
       primary: false,
-      extendBody: true,
+      // extendBody: true,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         primary: false,
@@ -88,6 +88,7 @@ class ImageCarousel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Carousel(
       boxFit: BoxFit.cover,
+      showIndicator: false,
       dotColor: Colors.transparent,
       images: [
         AssetImage('assets/1.jpg'),

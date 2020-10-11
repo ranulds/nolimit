@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_simple_rating_bar/flutter_simple_rating_bar.dart';
+import 'package:nolimit/profile/main-profile.dart';
 import 'package:nolimit/util/base.dart';
 import 'package:nolimit/gallery/gallery.dart';
-import 'package:nolimit/shane/brands.dart';
 import 'package:nolimit/shane/notifications.dart';
+import 'package:nolimit/util/drawer.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 
 class FeedBack extends StatefulWidget {
@@ -29,7 +30,8 @@ class _FeedBackState extends BaseState<FeedBack> {
           MaterialPageRoute(builder: (_) => Gallery()),
           (Route<dynamic> route) => false);
     else if (index == 2)
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => Brands()));
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (_) => MainProfile()));
   }
 
   showAlert(BuildContext context) {
@@ -54,7 +56,7 @@ class _FeedBackState extends BaseState<FeedBack> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: AppDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         showSelectedLabels: true,
@@ -79,13 +81,6 @@ class _FeedBackState extends BaseState<FeedBack> {
       ),
       primary: false,
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(
-            Icons.chevron_left,
-            size: 35,
-          ),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
         primary: false,
         elevation: 4,
         iconTheme: IconThemeData(color: Colors.black),
@@ -104,104 +99,123 @@ class _FeedBackState extends BaseState<FeedBack> {
         ],
       ),
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-              child: ListView(
-                children: [
-                  SizedBox(
-                    height: 40,
-                  ),
-                  Text(
-                    'How was your experience',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Center(
-                    child: RatingBar(
-                      rating: 0,
-                      icon: Icon(
-                        Icons.star,
-                        size: 40,
-                        color: Colors.grey,
-                      ),
-                      starCount: 5,
-                      spacing: 5.0,
-                      size: 40,
-                      isIndicator: false,
-                      allowHalfRating: true,
-                      onRatingCallback:
-                          (double value, ValueNotifier<bool> isIndicator) {
-                        //change the isIndicator from false  to true ,the RatingBar cannot support touch event;
-                        isIndicator.value = false;
-                      },
-                      color: Colors.amber,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Text(
-                    'Comment',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 18),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Form(
-                      key: _formKey,
-                      child: TextFormField(
-                        keyboardType: TextInputType.multiline,
-                        maxLines: 8,
-                        maxLength: 1000,
-                        validator: (value) {
-                          if (value.isEmpty) {
-                            return 'Please enter your feedback';
-                          }
-                          return null;
-                        },
-                      ),
-                    ),
-                  ),
-                  Center(
-                    child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                      color: Colors.cyan,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(Icons.send),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text('Send'),
-                        ],
-                      ),
-                      onPressed: () {
-                        FocusScope.of(context).unfocus();
-                        if (_formKey.currentState.validate()) {
-                          showAlert(context);
-                        }
-                      },
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                ],
+        child: SingleChildScrollView(
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(
+                height: 40,
               ),
-            ),
-          ],
+              Text(
+                'How was your experience',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 20),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              Center(
+                child: RatingBar(
+                  rating: 0,
+                  icon: Icon(
+                    Icons.star,
+                    size: 40,
+                    color: Colors.grey,
+                  ),
+                  starCount: 5,
+                  spacing: 5.0,
+                  size: 40,
+                  isIndicator: false,
+                  allowHalfRating: true,
+                  onRatingCallback:
+                      (double value, ValueNotifier<bool> isIndicator) {
+                    //change the isIndicator from false  to true ,the RatingBar cannot support touch event;
+                    isIndicator.value = false;
+                  },
+                  color: Colors.amber,
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Text(
+                'Comment',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 18),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Form(
+                  key: _formKey,
+                  child: TextFormField(
+                    decoration:
+                        InputDecoration(errorStyle: TextStyle(fontSize: 16)),
+                    keyboardType: TextInputType.multiline,
+                    maxLines: 8,
+                    maxLength: 1000,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please enter your feedback';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+              ),
+              // Center(
+              //   child: RaisedButton(
+              //     shape: RoundedRectangleBorder(
+              //         borderRadius: BorderRadius.circular(20)),
+              //     color: Colors.cyan,
+              //     child: Row(
+              //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+              //       mainAxisSize: MainAxisSize.min,
+              //       children: [
+              //         Icon(Icons.send),
+              //         SizedBox(
+              //           width: 5,
+              //         ),
+              //         Text('Send'),
+              //       ],
+              //     ),
+              //     onPressed: () {
+              //       FocusScope.of(context).unfocus();
+              //       if (_formKey.currentState.validate()) {
+              //         showAlert(context);
+              //       }
+              //     },
+              //   ),
+              // ),
+              // Spacer(),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 80),
+                child: RaisedButton(
+                  child: Text(
+                    'Send',
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: 18,
+                    ),
+                  ),
+                  onPressed: () {
+                    FocusScope.of(context).unfocus();
+                    if (_formKey.currentState.validate()) {
+                      showAlert(context);
+                    }
+                  },
+                  color: Colors.black87,
+                  padding: EdgeInsets.symmetric(horizontal: 140, vertical: 15),
+                  shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(30.0),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

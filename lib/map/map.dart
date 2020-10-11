@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:nolimit/shane/notifications.dart';
+import 'package:nolimit/util/drawer.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class GoogleCustomMap extends StatefulWidget {
@@ -135,14 +136,8 @@ class _RanulMapState extends State<GoogleCustomMap> {
               title: 'NOLIMIT Kandy', snippet: '557 Peradeniya Rd, Kandy')),
     ]);
     return Scaffold(
+      drawer: AppDrawer(),
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(
-            Icons.chevron_left,
-            size: 35,
-          ),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
         primary: false,
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,

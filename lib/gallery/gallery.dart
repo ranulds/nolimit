@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:nolimit/gallery/accesseories_sub_categories.dart';
+import 'package:nolimit/gallery/gents_sub_categories.dart';
+import 'package:nolimit/gallery/homeware_sub_categgories.dart';
+import 'package:nolimit/gallery/kids_sub_categories.dart';
 import 'package:nolimit/gallery/ladies_sub_categories.dart';
-import 'package:nolimit/home/carousel.dart';
-import 'package:nolimit/map/map.dart';
-import 'package:nolimit/shane/feedback.dart';
-import 'package:nolimit/signup/signin.dart';
-import 'package:nolimit/signup/signup.dart';
-
 import 'package:nolimit/profile/main-profile.dart';
-
-import 'package:nolimit/shane/brands.dart';
 import 'package:nolimit/shane/notifications.dart';
 import 'package:nolimit/util/drawer.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
@@ -136,7 +132,7 @@ class _GalleryState extends State<Gallery> {
                   ),
                   GestureDetector(
                     onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => LadiesSubCategory())),
+                        MaterialPageRoute(builder: (_) => GentsSubCategory())),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       child: Stack(
@@ -167,7 +163,7 @@ class _GalleryState extends State<Gallery> {
                   ),
                   GestureDetector(
                     onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => LadiesSubCategory())),
+                        MaterialPageRoute(builder: (_) => KidsSubCategory())),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       child: Stack(
@@ -197,8 +193,8 @@ class _GalleryState extends State<Gallery> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => LadiesSubCategory())),
+                    onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                        builder: (_) => AccessoriesSubCategory())),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       child: Stack(
@@ -228,8 +224,8 @@ class _GalleryState extends State<Gallery> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => LadiesSubCategory())),
+                    onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                        builder: (_) => HomewareSubCategory())),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       child: Stack(

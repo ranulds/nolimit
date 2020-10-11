@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:nolimit/gallery/gallery.dart';
-import 'package:nolimit/gallery/handbags.dart';
+import 'package:nolimit/gallery/gents_category.dart';
 import 'package:nolimit/gallery/item.dart';
-import 'package:nolimit/gallery/ladies_category.dart';
+import 'package:nolimit/gallery/jewellary.dart';
+import 'package:nolimit/gallery/shoes.dart';
+import 'package:nolimit/gallery/watches_categories.dart';
 import 'package:nolimit/map/map.dart';
 import 'package:nolimit/shane/notifications.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 
-class LadiesSubCategory extends StatefulWidget {
+class AccessoriesSubCategory extends StatefulWidget {
   @override
   _LadiesCategoryState createState() => _LadiesCategoryState();
 }
 
-class _LadiesCategoryState extends State<LadiesSubCategory> {
+class _LadiesCategoryState extends State<AccessoriesSubCategory> {
   int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
@@ -69,7 +71,7 @@ class _LadiesCategoryState extends State<LadiesSubCategory> {
         primary: false,
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
-        title: Text('Ladies',
+        title: Text('Accessories',
             style: TextStyle(
                 color: Colors.black,
                 fontSize: 25,
@@ -94,7 +96,7 @@ class _LadiesCategoryState extends State<LadiesSubCategory> {
                 Stack(
                   children: [
                     Image.asset(
-                      'images/placeimg_640_480_people (1).jpg',
+                      'images/pexels-pixabay-277390 (1).jpg',
                       height: MediaQuery.of(context).size.height * 0.4,
                       width: MediaQuery.of(context).size.width,
                       fit: BoxFit.fill,
@@ -119,7 +121,7 @@ class _LadiesCategoryState extends State<LadiesSubCategory> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
-                        'Formal Skirts',
+                        'Watches',
                         style: TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold),
                       ),
@@ -128,8 +130,7 @@ class _LadiesCategoryState extends State<LadiesSubCategory> {
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: FlatButton(
                         onPressed: () => Navigator.of(context).push(
-                            MaterialPageRoute(
-                                builder: (_) => LadiesCategory())),
+                            MaterialPageRoute(builder: (_) => WatchCategory())),
                         child: Text('show all'),
                       ),
                     )
@@ -142,25 +143,20 @@ class _LadiesCategoryState extends State<LadiesSubCategory> {
                     scrollDirection: Axis.horizontal,
                     children: <Widget>[
                       Imagewidget(
-                        source: 'images/pexels-andriana-3317434 (1).jpg',
-                        title: 'Lace Midi Skirt',
+                        source: 'images/pexels-jatin-anand-125779 (1).jpg',
+                        title: 'Watch',
                         price: 'Rs 1890.00',
                       ),
                       Imagewidget(
-                        source: 'images/pexels-daria-shevtsova-1391580 (1).jpg',
-                        title: 'Huf & Dee Long Skirt',
+                        source: 'images/pexels-joey-nguyễn-2113994 (1).jpg',
+                        title: 'Watch',
                         price: 'Rs 1550.00',
                       ),
                       Imagewidget(
-                        source: 'images/pexels-lucas-queiroz-1852382 (1).jpg',
-                        title: 'Pink Elephant Long Skirt',
+                        source: 'images/pexels-pixabay-277390 (1).jpg',
+                        title: 'Watch',
                         price: 'Rs 890.00',
                       ),
-                      Imagewidget(
-                        source: 'images/pexels-mikotoraw-4132651 (1).jpg',
-                        title: 'Salma Long Skirt',
-                        price: 'Rs 1690.00',
-                      ),
                     ],
                   ),
                 ),
@@ -170,57 +166,7 @@ class _LadiesCategoryState extends State<LadiesSubCategory> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
-                        'Handbags',
-                        style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: FlatButton(
-                        onPressed: () => Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => HandBags())),
-                        child: Text('show all'),
-                      ),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 200,
-                  child: ListView(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    scrollDirection: Axis.horizontal,
-                    children: <Widget>[
-                      Imagewidget(
-                        source: 'images/pexels-artem-beliaikin-2115431 (1).jpg',
-                        title: 'Ladies Casual Bag',
-                        price: 'Rs 690.00',
-                      ),
-                      Imagewidget(
-                        source: 'images/pexels-buenosia-carol-1204464 (1).jpg',
-                        title: 'Ladies Hand Bag',
-                        price: 'Rs 690.00',
-                      ),
-                      Imagewidget(
-                        source: 'images/pexels-godisable-jacob-2090784 (1).jpg',
-                        title: 'Ladies Casual Bag',
-                        price: 'Rs 3190.00',
-                      ),
-                      Imagewidget(
-                        source: 'images/pexels-kaboompics-com-5670 (1).jpg',
-                        title: 'Ladies Bag',
-                        price: 'Rs 2150.00',
-                      ),
-                    ],
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(
-                        'Blouse',
+                        'Jewellery',
                         style: TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold),
                       ),
@@ -230,7 +176,7 @@ class _LadiesCategoryState extends State<LadiesSubCategory> {
                       child: FlatButton(
                         onPressed: () => Navigator.of(context).push(
                             MaterialPageRoute(
-                                builder: (_) => LadiesCategory())),
+                                builder: (_) => JewellaryCategory())),
                         child: Text('show all'),
                       ),
                     )
@@ -244,24 +190,24 @@ class _LadiesCategoryState extends State<LadiesSubCategory> {
                     children: <Widget>[
                       Imagewidget(
                         source:
-                            'images/pexels-quang-anh-ha-nguyen-884979 (1).jpg',
-                        title: 'Huf & Dee Long Skirt',
-                        price: 'Rs 1550.00',
-                      ),
-                      Imagewidget(
-                        source: 'images/placeimg_640_480_people (1).jpg',
-                        title: 'Lace Midi Skirt',
-                        price: 'Rs 1890.00',
-                      ),
-                      Imagewidget(
-                        source: 'images/pexels-mikotoraw-4132651 (1).jpg',
-                        title: 'Salma Long Skirt',
+                            'images/pexels-anastasiya-lobanovskaya-1035683 (1).jpg',
+                        title: 'Necklace',
                         price: 'Rs 1690.00',
                       ),
                       Imagewidget(
-                        source: 'images/pexels-lucas-queiroz-1852382 (1).jpg',
-                        title: 'Pink Elephant Long Skirt',
-                        price: 'Rs 890.00',
+                        source: 'images/pexels-valeria-boltneva-965981 (1).jpg',
+                        title: 'Necklace',
+                        price: 'Rs 690.00',
+                      ),
+                      Imagewidget(
+                        source: 'images/pexels-engin-akyurt-1458867 (1).jpg',
+                        title: 'Nike',
+                        price: 'Rs 3190.00',
+                      ),
+                      Imagewidget(
+                        source: 'images/pexels-marta-branco-1395306 (1).jpg',
+                        title: 'Nike',
+                        price: 'Rs 2150.00',
                       ),
                     ],
                   ),

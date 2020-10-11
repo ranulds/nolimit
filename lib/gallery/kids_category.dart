@@ -5,12 +5,12 @@ import 'package:nolimit/map/map.dart';
 import 'package:nolimit/shane/notifications.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 
-class LadiesCategory extends StatefulWidget {
+class KidsCategory extends StatefulWidget {
   @override
   _LadiesCategoryState createState() => _LadiesCategoryState();
 }
 
-class _LadiesCategoryState extends State<LadiesCategory> {
+class _LadiesCategoryState extends State<KidsCategory> {
   int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
@@ -45,7 +45,7 @@ class _LadiesCategoryState extends State<LadiesCategory> {
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: Text('Formal Skirts',
+        title: Text('Kids Dresses',
             style: TextStyle(
               color: Colors.black,
             )),
@@ -87,19 +87,6 @@ class _LadiesCategoryState extends State<LadiesCategory> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            // Padding(
-            //   padding: const EdgeInsets.only(left: 20.0),
-            //   child: Text(
-            //     '8 items found',
-            //     style: TextStyle(
-            //       fontSize: 15,
-            //       color: Colors.grey,
-            //     ),
-            //   ),
-            // ),
-            // SizedBox(
-            //   height: 5,
-            // ),
             Expanded(
               child: GridView.count(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -110,43 +97,44 @@ class _LadiesCategoryState extends State<LadiesCategory> {
                     (MediaQuery.of(context).size.height / 1.7),
                 children: <Widget>[
                   Imagewidget(
-                    source: 'images/pexels-andriana-3317434 (1).jpg',
-                    title: 'Lace Midi Skirt',
+                    source: 'images/pexels-philip-boakye-2995309 (1).jpg',
+                    title: 'Bamboo Linen Shirt',
                     price: 'Rs 1890.00',
                   ),
                   Imagewidget(
-                    source: 'images/pexels-daria-shevtsova-1391580 (1).jpg',
-                    title: 'Huf & Dee Long Skirt',
+                    source:
+                        'images/pexels-thiszun-(follow-me-on-ig-fb)-1139613 (1).jpg',
+                    title: 'Deedat Casual Shirt',
                     price: 'Rs 1550.00',
                   ),
                   Imagewidget(
-                    source: 'images/pexels-lucas-queiroz-1852382 (1).jpg',
-                    title: 'Pink Elephant Long Skirt',
+                    source: 'images/pexels-tuấn-kiệt-jr-1765423 (1).jpg',
+                    title: 'Comfy Linen Shirt',
                     price: 'Rs 890.00',
                   ),
                   Imagewidget(
-                    source: 'images/pexels-mikotoraw-4132651 (1).jpg',
-                    title: 'Salma Long Skirt',
+                    source: 'images/pexels-victoria-borodinova-1094084 (1).jpg',
+                    title: 'Jack & Smith Casual Shirt',
                     price: 'Rs 1690.00',
                   ),
                   Imagewidget(
-                    source: 'images/pexels-quang-anh-ha-nguyen-884979 (1).jpg',
-                    title: 'Salma Long Skirt',
+                    source: 'images/pexels-victoria-borodinova-1619697 (1).jpg',
+                    title: 'MBRK Linen Shirt',
                     price: 'Rs 1790.00',
                   ),
                   Imagewidget(
-                    source: 'images/pexels-andriana-3317434 (1).jpg',
-                    title: 'Ladies Formal Skirt',
+                    source: 'images/pexels-victoria-borodinova-1619772 (1).jpg',
+                    title: 'PORTOFINO Casual Shirt',
                     price: 'Rs 1290.00',
                   ),
                   Imagewidget(
-                    source: 'images/pexels-daria-shevtsova-1391580 (1).jpg',
-                    title: 'Lace Midi Skirt',
+                    source: 'images/pexels-victoria-borodinova-1620815 (1).jpg',
+                    title: 'PORTOFINO Casual Shirt',
                     price: 'Rs 1890.00',
                   ),
                   Imagewidget(
-                    source: 'images/placeimg_640_480_people (1).jpg',
-                    title: 'Huf & Dee Long Skirt',
+                    source: 'images/pexels-victoria-borodinova-1620826 (1).jpg',
+                    title: 'Bamboo Linen Shirt',
                     price: 'Rs 1550.00',
                   ),
                 ],

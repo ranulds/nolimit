@@ -5,12 +5,12 @@ import 'package:nolimit/map/map.dart';
 import 'package:nolimit/shane/notifications.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 
-class LadiesCategory extends StatefulWidget {
+class GentsCategory extends StatefulWidget {
   @override
   _LadiesCategoryState createState() => _LadiesCategoryState();
 }
 
-class _LadiesCategoryState extends State<LadiesCategory> {
+class _LadiesCategoryState extends State<GentsCategory> {
   int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
@@ -45,7 +45,7 @@ class _LadiesCategoryState extends State<LadiesCategory> {
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: Text('Formal Skirts',
+        title: Text('Formal Shirts',
             style: TextStyle(
               color: Colors.black,
             )),
@@ -110,43 +110,43 @@ class _LadiesCategoryState extends State<LadiesCategory> {
                     (MediaQuery.of(context).size.height / 1.7),
                 children: <Widget>[
                   Imagewidget(
-                    source: 'images/pexels-andriana-3317434 (1).jpg',
-                    title: 'Lace Midi Skirt',
+                    source: 'images/pexels-andrea-piacquadio-716411 (1).jpg',
+                    title: 'Bamboo Linen Shirt',
                     price: 'Rs 1890.00',
                   ),
                   Imagewidget(
-                    source: 'images/pexels-daria-shevtsova-1391580 (1).jpg',
-                    title: 'Huf & Dee Long Skirt',
+                    source: 'images/pexels-andrea-piacquadio-941693 (1).jpg',
+                    title: 'Deedat Casual Shirt',
                     price: 'Rs 1550.00',
                   ),
                   Imagewidget(
-                    source: 'images/pexels-lucas-queiroz-1852382 (1).jpg',
-                    title: 'Pink Elephant Long Skirt',
+                    source: 'images/pexels-chloe-kala-1043474 (1).jpg',
+                    title: 'Comfy Linen Shirt',
                     price: 'Rs 890.00',
                   ),
                   Imagewidget(
-                    source: 'images/pexels-mikotoraw-4132651 (1).jpg',
-                    title: 'Salma Long Skirt',
+                    source: 'images/pexels-emre-keshavarz-3526923 (1).jpg',
+                    title: 'Jack & Smith Casual Shirt',
                     price: 'Rs 1690.00',
                   ),
                   Imagewidget(
-                    source: 'images/pexels-quang-anh-ha-nguyen-884979 (1).jpg',
-                    title: 'Salma Long Skirt',
+                    source: 'images/pexels-martin-péchy-594610 (1).jpg',
+                    title: 'MBRK Linen Shirt',
                     price: 'Rs 1790.00',
                   ),
                   Imagewidget(
-                    source: 'images/pexels-andriana-3317434 (1).jpg',
-                    title: 'Ladies Formal Skirt',
+                    source: 'images/pexels-raul-reynoso-1018911 (1).jpg',
+                    title: 'PORTOFINO Casual Shirt',
                     price: 'Rs 1290.00',
                   ),
                   Imagewidget(
-                    source: 'images/pexels-daria-shevtsova-1391580 (1).jpg',
-                    title: 'Lace Midi Skirt',
+                    source: 'images/pexels-sindre-strøm-1040945 (1).jpg',
+                    title: 'PORTOFINO Casual Shirt',
                     price: 'Rs 1890.00',
                   ),
                   Imagewidget(
-                    source: 'images/placeimg_640_480_people (1).jpg',
-                    title: 'Huf & Dee Long Skirt',
+                    source: 'images/pexels-spencer-selover-775358 (1).jpg',
+                    title: 'Bamboo Linen Shirt',
                     price: 'Rs 1550.00',
                   ),
                 ],

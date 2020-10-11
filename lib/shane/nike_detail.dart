@@ -5,12 +5,12 @@ import 'package:nolimit/map/map.dart';
 import 'package:nolimit/shane/notifications.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 
-class BrandDetail extends StatefulWidget {
+class NikeDetail extends StatefulWidget {
   @override
   _BrandDetailState createState() => _BrandDetailState();
 }
 
-class _BrandDetailState extends State<BrandDetail> {
+class _BrandDetailState extends State<NikeDetail> {
   int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
@@ -90,7 +90,7 @@ class _BrandDetailState extends State<BrandDetail> {
             Padding(
               padding: const EdgeInsets.only(left: 20.0),
               child: Text(
-                'Adidas',
+                'Nike',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
               ),
             ),
@@ -100,7 +100,7 @@ class _BrandDetailState extends State<BrandDetail> {
             Card(
               clipBehavior: Clip.antiAliasWithSaveLayer,
               child: Image.asset(
-                'images/adidas.jpg',
+                'images/nike.jpg',
               ),
               margin: EdgeInsets.all(20),
             ),

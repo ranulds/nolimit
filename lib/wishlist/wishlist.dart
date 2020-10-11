@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nolimit/gallery/gallery.dart';
 import 'package:nolimit/gallery/item.dart';
+import 'package:nolimit/profile/main-profile.dart';
 import 'package:nolimit/shane/notifications.dart';
+import 'package:nolimit/util/drawer.dart';
 
 class WishList extends StatefulWidget {
   @override
@@ -23,12 +25,16 @@ class _WishListState extends State<WishList> {
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(builder: (context) => Gallery()),
           (Route<dynamic> route) => false);
+    else if (index == 2)
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => MainProfile()),
+          (Route<dynamic> route) => false);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: AppDrawer(),
       appBar: AppBar(
         primary: false,
         // elevation: 0,
@@ -103,45 +109,46 @@ class _WishListState extends State<WishList> {
                   colour: 'Soft Pink',
                 ),
                 WishListItem(
-                  source: 'images/pexels-daria-shevtsova-1391580 (1).jpg',
-                  title: 'Ladies Formal Skirt',
-                  price: 'Rs 1290',
+                  source: 'images/pexels-artem-beliaikin-2115431 (1).jpg',
+                  title: 'Ladies Casual Bag',
+                  price: 'Rs 690.00',
                   colour: 'Black',
                 ),
                 WishListItem(
-                  source: 'images/pexels-lucas-queiroz-1852382 (1).jpg',
-                  title: 'Ladies Blouse',
-                  price: 'Rs 990',
+                  source: 'images/pexels-andrea-piacquadio-716411 (1).jpg',
+                  title: 'Bamboo Linen Shirt',
+                  price: 'Rs 1890.00',
                   colour: 'Orange',
                 ),
                 WishListItem(
-                  source: 'images/pexels-mikotoraw-4132651 (1).jpg',
-                  title: 'Over coat',
-                  price: 'Rs 3590',
+                  source: 'images/pexels-aidan-jarrett-718981 (1).jpg',
+                  title: 'Catepillar',
+                  price: 'Rs 1690.00',
                   colour: 'Dark Grey',
                 ),
                 WishListItem(
-                  source: 'images/pexels-quang-anh-ha-nguyen-884979 (1).jpg',
-                  title: 'Skinny Top',
-                  price: 'Rs 590',
+                  source: 'images/pexels-philip-boakye-2995309 (1).jpg',
+                  title: 'Bamboo Linen Shirt',
+                  price: 'Rs 1890.00',
                   colour: 'Cream White',
                 ),
                 WishListItem(
-                  source: 'images/pexels-spencer-selover-428340 (1).jpg',
-                  title: 'Casual T-Shirt',
-                  price: 'Rs 1590',
+                  source: 'images/pexels-pixabay-277390 (1).jpg',
+                  title: 'Watch',
+                  price: 'Rs 1890.00',
                   colour: 'White',
                 ),
                 WishListItem(
-                  source: 'images/man yellow tshirt.jpg',
-                  title: 'Baggy T-Shirt',
-                  price: 'Rs 1590',
+                  source:
+                      'images/pexels-anastasiya-lobanovskaya-1035683 (1).jpg',
+                  title: 'Bamboo Necklace',
+                  price: 'Rs 1890.00',
                   colour: 'Orange',
                 ),
                 WishListItem(
-                  source: 'images/placeimg_640_480_people (1).jpg',
-                  title: 'Ladies Formal Skirt',
-                  price: 'Rs 1290',
+                  source: 'images/pexels-evg-culture-1148955 (1).jpg',
+                  title: 'Bamboo Chair',
+                  price: 'Rs 1890.00',
                   colour: 'Black',
                 ),
               ],

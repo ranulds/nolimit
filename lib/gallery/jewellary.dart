@@ -5,12 +5,12 @@ import 'package:nolimit/map/map.dart';
 import 'package:nolimit/shane/notifications.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 
-class LadiesCategory extends StatefulWidget {
+class JewellaryCategory extends StatefulWidget {
   @override
   _LadiesCategoryState createState() => _LadiesCategoryState();
 }
 
-class _LadiesCategoryState extends State<LadiesCategory> {
+class _LadiesCategoryState extends State<JewellaryCategory> {
   int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
@@ -45,7 +45,7 @@ class _LadiesCategoryState extends State<LadiesCategory> {
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: Text('Formal Skirts',
+        title: Text('Jewellery',
             style: TextStyle(
               color: Colors.black,
             )),
@@ -110,44 +110,35 @@ class _LadiesCategoryState extends State<LadiesCategory> {
                     (MediaQuery.of(context).size.height / 1.7),
                 children: <Widget>[
                   Imagewidget(
-                    source: 'images/pexels-andriana-3317434 (1).jpg',
-                    title: 'Lace Midi Skirt',
+                    source:
+                        'images/pexels-anastasiya-lobanovskaya-1035683 (1).jpg',
+                    title: 'Bamboo Necklace',
                     price: 'Rs 1890.00',
                   ),
                   Imagewidget(
-                    source: 'images/pexels-daria-shevtsova-1391580 (1).jpg',
-                    title: 'Huf & Dee Long Skirt',
+                    source: 'images/pexels-engin-akyurt-1458867 (1).jpg',
+                    title: 'Deedat Necklace',
                     price: 'Rs 1550.00',
                   ),
                   Imagewidget(
-                    source: 'images/pexels-lucas-queiroz-1852382 (1).jpg',
-                    title: 'Pink Elephant Long Skirt',
+                    source: 'images/pexels-fox-998521 (1).jpg',
+                    title: 'Comfy Necklace',
                     price: 'Rs 890.00',
                   ),
                   Imagewidget(
-                    source: 'images/pexels-mikotoraw-4132651 (1).jpg',
-                    title: 'Salma Long Skirt',
+                    source: 'images/pexels-git-stephen-gitau-1670723 (1).jpg',
+                    title: 'Jack & Smith Casual Necklace',
                     price: 'Rs 1690.00',
                   ),
                   Imagewidget(
-                    source: 'images/pexels-quang-anh-ha-nguyen-884979 (1).jpg',
-                    title: 'Salma Long Skirt',
+                    source: 'images/pexels-marta-branco-1395306 (1).jpg',
+                    title: 'MBRK Necklace',
                     price: 'Rs 1790.00',
                   ),
                   Imagewidget(
-                    source: 'images/pexels-andriana-3317434 (1).jpg',
-                    title: 'Ladies Formal Skirt',
+                    source: 'images/pexels-valeria-boltneva-965981 (1).jpg',
+                    title: 'PORTOFINO Casual Necklace',
                     price: 'Rs 1290.00',
-                  ),
-                  Imagewidget(
-                    source: 'images/pexels-daria-shevtsova-1391580 (1).jpg',
-                    title: 'Lace Midi Skirt',
-                    price: 'Rs 1890.00',
-                  ),
-                  Imagewidget(
-                    source: 'images/placeimg_640_480_people (1).jpg',
-                    title: 'Huf & Dee Long Skirt',
-                    price: 'Rs 1550.00',
                   ),
                 ],
               ),
