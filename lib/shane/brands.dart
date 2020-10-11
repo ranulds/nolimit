@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nolimit/gallery/gallery.dart';
-import 'package:nolimit/map/map.dart';
 import 'package:nolimit/profile/main-profile.dart';
 import 'package:nolimit/shane/brand_detail.dart';
 import 'package:nolimit/shane/lacoste_detail.dart';

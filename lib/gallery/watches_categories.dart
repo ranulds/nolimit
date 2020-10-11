@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nolimit/gallery/gallery.dart';
 import 'package:nolimit/gallery/item.dart';
-import 'package:nolimit/map/map.dart';
 import 'package:nolimit/profile/main-profile.dart';
 import 'package:nolimit/shane/notifications.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
@@ -188,7 +187,7 @@ class _ImagewidgetState extends State<Imagewidget> {
                       child: IconButton(
                         icon: Icon(
                             liked ? Icons.favorite : Icons.favorite_border,
-                            color: liked ? Colors.red : Colors.grey),
+                            color: liked ? Colors.red : Colors.grey[700]),
                         onPressed: () => _pressed(),
                       ),
                     ),

@@ -249,7 +249,7 @@ class _WishListItemState extends State<WishListItem> {
                       IconButton(
                         icon: Icon(
                             liked ? Icons.favorite : Icons.favorite_border,
-                            color: liked ? Colors.red : Colors.grey),
+                            color: liked ? Colors.red : Colors.grey[700]),
                         color: Colors.red,
                         onPressed: () => _pressed(),
                       ),
