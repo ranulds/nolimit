@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:nolimit/home/carousel.dart';
 import 'package:nolimit/signup/signin.dart';
+import 'package:nolimit/util/base.dart';
 
 class SignupPage extends StatefulWidget {
   @override
   _SignupPageState createState() => _SignupPageState();
 }
 
-class _SignupPageState extends State<SignupPage> {
+class _SignupPageState extends BaseState<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(

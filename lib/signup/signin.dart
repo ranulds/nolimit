@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nolimit/home/carousel.dart';
 import 'package:nolimit/signup/forgotpw.dart';
+import 'package:nolimit/util/base.dart';
 import 'signup.dart';
 
 class SigninPage extends StatefulWidget {
@@ -8,7 +9,7 @@ class SigninPage extends StatefulWidget {
   _SigninPageState createState() => _SigninPageState();
 }
 
-class _SigninPageState extends State<SigninPage> {
+class _SigninPageState extends BaseState<SigninPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -134,9 +135,9 @@ class _SigninPageState extends State<SigninPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Center(
-                              child: ImageIcon(AssetImage('')),
-                            ),
+                            // Center(
+                            //   child: ImageIcon(AssetImage('')),
+                            // ),
                             SizedBox(width: 10.0),
                             Center(
                               child: Text('Log in with facebook',
