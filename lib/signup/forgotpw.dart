@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:nolimit/signup/signin.dart';
+import 'package:nolimit/util/base.dart';
 
 class fgPassword extends StatefulWidget {
   @override
   _forgotPassword createState() => _forgotPassword();
 }
 
-class _forgotPassword extends State<fgPassword> {
+class _forgotPassword extends BaseState<fgPassword> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(

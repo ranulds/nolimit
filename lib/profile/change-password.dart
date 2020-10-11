@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nolimit/gallery/gallery.dart';
+import 'package:nolimit/util/base.dart';
 import 'package:nolimit/wishlist/wishlist.dart';
 import 'package:toast/toast.dart';
 import 'package:nolimit/profile/main-profile.dart';
@@ -9,7 +10,7 @@ class ChangePassword extends StatefulWidget {
   _ChangePasswordState createState() => _ChangePasswordState();
 }
 
-class _ChangePasswordState extends State<ChangePassword> {
+class _ChangePasswordState extends BaseState<ChangePassword> {
   final _passwordText = TextEditingController();
   final _newPasswordText = TextEditingController();
   final _confirmPasswordText = TextEditingController();
