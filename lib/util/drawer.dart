@@ -97,7 +97,7 @@ class AppDrawer extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(builder: (_) => MainProfile()),
+                  MaterialPageRoute(builder: (_) => GoogleCustomMap()),
                   (Route<dynamic> route) => false);
             },
           ),
