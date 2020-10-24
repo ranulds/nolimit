@@ -39,7 +39,7 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           new Divider(
-            color: Colors.black,
+            color: Colors.transparent,
             height: 25.0,
           ),
           new ListTile(
@@ -57,7 +57,7 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           new Divider(
-            color: Colors.black,
+            color: Colors.transparent,
             height: 25.0,
           ),
           new ListTile(
@@ -72,7 +72,7 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           new Divider(
-            color: Colors.black,
+            color: Colors.transparent,
             height: 25.0,
           ),
           new ListTile(
@@ -87,7 +87,7 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           new Divider(
-            color: Colors.black,
+            color: Colors.transparent,
             height: 25.0,
           ),
           new ListTile(
@@ -102,7 +102,7 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           new Divider(
-            color: Colors.black,
+            color: Colors.transparent,
             height: 25.0,
           ),
           new ListTile(
@@ -117,7 +117,7 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           new Divider(
-            color: Colors.black,
+            color: Colors.transparent,
             height: 25.0,
           ),
           new ListTile(
@@ -132,7 +132,7 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           new Divider(
-            color: Colors.black,
+            color: Colors.transparent,
             height: 25.0,
           ),
         ],
